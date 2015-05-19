@@ -1,0 +1,819 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0067)http://blog.163.com/moro80@126/blog/static/16630018720114184505851/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    
+    <meta http-equiv="content-style-type" content="text/css">
+    <meta http-equiv="content-script-type" content="text/javascript">
+    <meta name="version" content="neblog-1.0">
+    <script type="text/javascript">
+      
+      
+      document.uniqueID!=document.uniqueID&&!!location.hash&&(location.hash=location.hash); 
+      document.domain = location.hostname.replace(/^.*\.([\w]+\.[\w]+)$/,'$1');
+      window.focus();
+      window.getMusicTimeStamp=function(){return '9d32ba55755bf4bace74836ff49777e2';};
+    </script>
+<title>哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客</title>
+<meta name="author" content="moro80@126,慕容鱼吐的新闻泡">
+<meta name="keywords" content="哼唱搜索V0.2-盛大模糊检索引擎正式开源,日志,慕容鱼吐的新闻泡,慕容鱼吐的新闻泡,网易博客,网易,blog">
+<meta name="description" content="哼唱搜索V0.2-盛大模糊检索引擎正式开源,慕容鱼吐的新闻泡的网易博客,每天吐新闻泡的慕容鱼http://weibo.com/moro,每天吐新闻泡的慕容鱼···
+长期关注互联网的酷新闻·酷网站·酷软件·酷艺术·酷文化···
+微博：www.weibo.com/moro">
+  <script type="text/javascript">
+    (function(){
+     var R=24,C=11,a=[];
+     for(var i=0;i<C;i++)for(var j=0;j<R;a.push('.icn0-'+i+j+'{background-position:'+(i>0?('-'+i*40+'px'):'0')+' '+(j>0?('-'+j*20+'px'):'0')+';}'),j++);
+          document.write('<style type="text/css">'+a.join('')+'</st'+'yle>');
+    })();
+  </script><style type="text/css">.icn0-00{background-position:0 0;}.icn0-01{background-position:0 -20px;}.icn0-02{background-position:0 -40px;}.icn0-03{background-position:0 -60px;}.icn0-04{background-position:0 -80px;}.icn0-05{background-position:0 -100px;}.icn0-06{background-position:0 -120px;}.icn0-07{background-position:0 -140px;}.icn0-08{background-position:0 -160px;}.icn0-09{background-position:0 -180px;}.icn0-010{background-position:0 -200px;}.icn0-011{background-position:0 -220px;}.icn0-012{background-position:0 -240px;}.icn0-013{background-position:0 -260px;}.icn0-014{background-position:0 -280px;}.icn0-015{background-position:0 -300px;}.icn0-016{background-position:0 -320px;}.icn0-017{background-position:0 -340px;}.icn0-018{background-position:0 -360px;}.icn0-019{background-position:0 -380px;}.icn0-020{background-position:0 -400px;}.icn0-021{background-position:0 -420px;}.icn0-022{background-position:0 -440px;}.icn0-023{background-position:0 -460px;}.icn0-10{background-position:-40px 0;}.icn0-11{background-position:-40px -20px;}.icn0-12{background-position:-40px -40px;}.icn0-13{background-position:-40px -60px;}.icn0-14{background-position:-40px -80px;}.icn0-15{background-position:-40px -100px;}.icn0-16{background-position:-40px -120px;}.icn0-17{background-position:-40px -140px;}.icn0-18{background-position:-40px -160px;}.icn0-19{background-position:-40px -180px;}.icn0-110{background-position:-40px -200px;}.icn0-111{background-position:-40px -220px;}.icn0-112{background-position:-40px -240px;}.icn0-113{background-position:-40px -260px;}.icn0-114{background-position:-40px -280px;}.icn0-115{background-position:-40px -300px;}.icn0-116{background-position:-40px -320px;}.icn0-117{background-position:-40px -340px;}.icn0-118{background-position:-40px -360px;}.icn0-119{background-position:-40px -380px;}.icn0-120{background-position:-40px -400px;}.icn0-121{background-position:-40px -420px;}.icn0-122{background-position:-40px -440px;}.icn0-123{background-position:-40px -460px;}.icn0-20{background-position:-80px 0;}.icn0-21{background-position:-80px -20px;}.icn0-22{background-position:-80px -40px;}.icn0-23{background-position:-80px -60px;}.icn0-24{background-position:-80px -80px;}.icn0-25{background-position:-80px -100px;}.icn0-26{background-position:-80px -120px;}.icn0-27{background-position:-80px -140px;}.icn0-28{background-position:-80px -160px;}.icn0-29{background-position:-80px -180px;}.icn0-210{background-position:-80px -200px;}.icn0-211{background-position:-80px -220px;}.icn0-212{background-position:-80px -240px;}.icn0-213{background-position:-80px -260px;}.icn0-214{background-position:-80px -280px;}.icn0-215{background-position:-80px -300px;}.icn0-216{background-position:-80px -320px;}.icn0-217{background-position:-80px -340px;}.icn0-218{background-position:-80px -360px;}.icn0-219{background-position:-80px -380px;}.icn0-220{background-position:-80px -400px;}.icn0-221{background-position:-80px -420px;}.icn0-222{background-position:-80px -440px;}.icn0-223{background-position:-80px -460px;}.icn0-30{background-position:-120px 0;}.icn0-31{background-position:-120px -20px;}.icn0-32{background-position:-120px -40px;}.icn0-33{background-position:-120px -60px;}.icn0-34{background-position:-120px -80px;}.icn0-35{background-position:-120px -100px;}.icn0-36{background-position:-120px -120px;}.icn0-37{background-position:-120px -140px;}.icn0-38{background-position:-120px -160px;}.icn0-39{background-position:-120px -180px;}.icn0-310{background-position:-120px -200px;}.icn0-311{background-position:-120px -220px;}.icn0-312{background-position:-120px -240px;}.icn0-313{background-position:-120px -260px;}.icn0-314{background-position:-120px -280px;}.icn0-315{background-position:-120px -300px;}.icn0-316{background-position:-120px -320px;}.icn0-317{background-position:-120px -340px;}.icn0-318{background-position:-120px -360px;}.icn0-319{background-position:-120px -380px;}.icn0-320{background-position:-120px -400px;}.icn0-321{background-position:-120px -420px;}.icn0-322{background-position:-120px -440px;}.icn0-323{background-position:-120px -460px;}.icn0-40{background-position:-160px 0;}.icn0-41{background-position:-160px -20px;}.icn0-42{background-position:-160px -40px;}.icn0-43{background-position:-160px -60px;}.icn0-44{background-position:-160px -80px;}.icn0-45{background-position:-160px -100px;}.icn0-46{background-position:-160px -120px;}.icn0-47{background-position:-160px -140px;}.icn0-48{background-position:-160px -160px;}.icn0-49{background-position:-160px -180px;}.icn0-410{background-position:-160px -200px;}.icn0-411{background-position:-160px -220px;}.icn0-412{background-position:-160px -240px;}.icn0-413{background-position:-160px -260px;}.icn0-414{background-position:-160px -280px;}.icn0-415{background-position:-160px -300px;}.icn0-416{background-position:-160px -320px;}.icn0-417{background-position:-160px -340px;}.icn0-418{background-position:-160px -360px;}.icn0-419{background-position:-160px -380px;}.icn0-420{background-position:-160px -400px;}.icn0-421{background-position:-160px -420px;}.icn0-422{background-position:-160px -440px;}.icn0-423{background-position:-160px -460px;}.icn0-50{background-position:-200px 0;}.icn0-51{background-position:-200px -20px;}.icn0-52{background-position:-200px -40px;}.icn0-53{background-position:-200px -60px;}.icn0-54{background-position:-200px -80px;}.icn0-55{background-position:-200px -100px;}.icn0-56{background-position:-200px -120px;}.icn0-57{background-position:-200px -140px;}.icn0-58{background-position:-200px -160px;}.icn0-59{background-position:-200px -180px;}.icn0-510{background-position:-200px -200px;}.icn0-511{background-position:-200px -220px;}.icn0-512{background-position:-200px -240px;}.icn0-513{background-position:-200px -260px;}.icn0-514{background-position:-200px -280px;}.icn0-515{background-position:-200px -300px;}.icn0-516{background-position:-200px -320px;}.icn0-517{background-position:-200px -340px;}.icn0-518{background-position:-200px -360px;}.icn0-519{background-position:-200px -380px;}.icn0-520{background-position:-200px -400px;}.icn0-521{background-position:-200px -420px;}.icn0-522{background-position:-200px -440px;}.icn0-523{background-position:-200px -460px;}.icn0-60{background-position:-240px 0;}.icn0-61{background-position:-240px -20px;}.icn0-62{background-position:-240px -40px;}.icn0-63{background-position:-240px -60px;}.icn0-64{background-position:-240px -80px;}.icn0-65{background-position:-240px -100px;}.icn0-66{background-position:-240px -120px;}.icn0-67{background-position:-240px -140px;}.icn0-68{background-position:-240px -160px;}.icn0-69{background-position:-240px -180px;}.icn0-610{background-position:-240px -200px;}.icn0-611{background-position:-240px -220px;}.icn0-612{background-position:-240px -240px;}.icn0-613{background-position:-240px -260px;}.icn0-614{background-position:-240px -280px;}.icn0-615{background-position:-240px -300px;}.icn0-616{background-position:-240px -320px;}.icn0-617{background-position:-240px -340px;}.icn0-618{background-position:-240px -360px;}.icn0-619{background-position:-240px -380px;}.icn0-620{background-position:-240px -400px;}.icn0-621{background-position:-240px -420px;}.icn0-622{background-position:-240px -440px;}.icn0-623{background-position:-240px -460px;}.icn0-70{background-position:-280px 0;}.icn0-71{background-position:-280px -20px;}.icn0-72{background-position:-280px -40px;}.icn0-73{background-position:-280px -60px;}.icn0-74{background-position:-280px -80px;}.icn0-75{background-position:-280px -100px;}.icn0-76{background-position:-280px -120px;}.icn0-77{background-position:-280px -140px;}.icn0-78{background-position:-280px -160px;}.icn0-79{background-position:-280px -180px;}.icn0-710{background-position:-280px -200px;}.icn0-711{background-position:-280px -220px;}.icn0-712{background-position:-280px -240px;}.icn0-713{background-position:-280px -260px;}.icn0-714{background-position:-280px -280px;}.icn0-715{background-position:-280px -300px;}.icn0-716{background-position:-280px -320px;}.icn0-717{background-position:-280px -340px;}.icn0-718{background-position:-280px -360px;}.icn0-719{background-position:-280px -380px;}.icn0-720{background-position:-280px -400px;}.icn0-721{background-position:-280px -420px;}.icn0-722{background-position:-280px -440px;}.icn0-723{background-position:-280px -460px;}.icn0-80{background-position:-320px 0;}.icn0-81{background-position:-320px -20px;}.icn0-82{background-position:-320px -40px;}.icn0-83{background-position:-320px -60px;}.icn0-84{background-position:-320px -80px;}.icn0-85{background-position:-320px -100px;}.icn0-86{background-position:-320px -120px;}.icn0-87{background-position:-320px -140px;}.icn0-88{background-position:-320px -160px;}.icn0-89{background-position:-320px -180px;}.icn0-810{background-position:-320px -200px;}.icn0-811{background-position:-320px -220px;}.icn0-812{background-position:-320px -240px;}.icn0-813{background-position:-320px -260px;}.icn0-814{background-position:-320px -280px;}.icn0-815{background-position:-320px -300px;}.icn0-816{background-position:-320px -320px;}.icn0-817{background-position:-320px -340px;}.icn0-818{background-position:-320px -360px;}.icn0-819{background-position:-320px -380px;}.icn0-820{background-position:-320px -400px;}.icn0-821{background-position:-320px -420px;}.icn0-822{background-position:-320px -440px;}.icn0-823{background-position:-320px -460px;}.icn0-90{background-position:-360px 0;}.icn0-91{background-position:-360px -20px;}.icn0-92{background-position:-360px -40px;}.icn0-93{background-position:-360px -60px;}.icn0-94{background-position:-360px -80px;}.icn0-95{background-position:-360px -100px;}.icn0-96{background-position:-360px -120px;}.icn0-97{background-position:-360px -140px;}.icn0-98{background-position:-360px -160px;}.icn0-99{background-position:-360px -180px;}.icn0-910{background-position:-360px -200px;}.icn0-911{background-position:-360px -220px;}.icn0-912{background-position:-360px -240px;}.icn0-913{background-position:-360px -260px;}.icn0-914{background-position:-360px -280px;}.icn0-915{background-position:-360px -300px;}.icn0-916{background-position:-360px -320px;}.icn0-917{background-position:-360px -340px;}.icn0-918{background-position:-360px -360px;}.icn0-919{background-position:-360px -380px;}.icn0-920{background-position:-360px -400px;}.icn0-921{background-position:-360px -420px;}.icn0-922{background-position:-360px -440px;}.icn0-923{background-position:-360px -460px;}.icn0-100{background-position:-400px 0;}.icn0-101{background-position:-400px -20px;}.icn0-102{background-position:-400px -40px;}.icn0-103{background-position:-400px -60px;}.icn0-104{background-position:-400px -80px;}.icn0-105{background-position:-400px -100px;}.icn0-106{background-position:-400px -120px;}.icn0-107{background-position:-400px -140px;}.icn0-108{background-position:-400px -160px;}.icn0-109{background-position:-400px -180px;}.icn0-1010{background-position:-400px -200px;}.icn0-1011{background-position:-400px -220px;}.icn0-1012{background-position:-400px -240px;}.icn0-1013{background-position:-400px -260px;}.icn0-1014{background-position:-400px -280px;}.icn0-1015{background-position:-400px -300px;}.icn0-1016{background-position:-400px -320px;}.icn0-1017{background-position:-400px -340px;}.icn0-1018{background-position:-400px -360px;}.icn0-1019{background-position:-400px -380px;}.icn0-1020{background-position:-400px -400px;}.icn0-1021{background-position:-400px -420px;}.icn0-1022{background-position:-400px -440px;}.icn0-1023{background-position:-400px -460px;}</style>
+    <link type="text/css" rel="stylesheet" href="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/c.css">
+    <link type="text/css" rel="stylesheet" href="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/b.css" id="blog-163-com-theme">
+  <!--[if lte IE 6]>
+  <style type="text/css">
+    html,body,#blog-163-com-ie6body{height:100%;width:100%;overflow:hidden;}
+    #blog-163-com-ie6body{overflow:auto;overflow-y:scroll;}
+    #blog-163-com{background:none;}
+  </style>
+  <![endif]-->
+  
+  
+  <style type="text/css">.m-3 .nbw-ryt .left .mcnt{padding-left:10px;}.m-3 .nbw-ryt .right .acts{position:relative;margin:0 0 12px 0;line-height:20px;}.m-3 .nbw-ryt .right .more{margin-top:-15px;height:24px;line-height:24px;}#blog-163-com .m-3 .phide{display:none;}.m-3 .nbw-ryt .left .nbw-bitm{margin:0;padding:0 10px 0 10px;position:relative;}.m-3 .nbw-ryt .left .nbw-bitm .title{margin:30px 0 20px;line-height:32px;}.m-3 .nbw-ryt .left .nbw-bitm .title .tcnt{font-size:26px;font-weight:bold;font-family:"Hiragino Sans GB W3","Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",Arial,Helvetica,simsun,"\5B8B\4F53";}.m-3 .nbw-ryt .left .nbw-bitm .tdep{margin-bottom:20px;}.m-3 .nbw-ryt .left .nbw-bitm .tbar{margin:5px 0;padding:10px 0 10px 0;line-height:20px;text-align:right;}.m-3 .nbw-ryt .left .nbw-bitm .bct{font-size:16px;padding-left:0}.m-3 .nbw-ryt .left .nbw-bitm .muava{float:left;margin:5px 7px 0 0;border-width:0 1px 0 0;height:40px;}.m-3 .nbw-ryt .left .snl .pnb div{line-height:20px;text-align:left;}.m-3 .nbw-ryt .cite{margin:20px 0 0 50px;line-height:24px;text-align:left;}.m-3 .nbw-ryt .cite .close{float:right;margin:0;text-align:right;}.m-3 .nbw-ryt .cite span{cursor:pointer;}.m-3 .nbw-ryt .cite .nbw-act{text-align:center;}.m-3 .nbw-ryt .cite .ads{margin-left:20px;width:400px;}.m-3 .nbw-ryt .cite .tbac{margin-left:60px;padding:0;border:0;list-style:none;line-height:24px;}.m-3 .nbw-ryt .cite .tbl{width:150px;overflow:hidden;}.m-3 .nbw-ryt .cite .tbr{margin-left:20px;overflow:hidden;}.m-3 .nbw-act-share{position:relative;}.m-3 .nbw-act-share .nas-wrap{visibility:hidden;}.m-3 .nbw-act-share:hover .nas-wrap,.m-3 .js-share-hover .nas-wrap{visibility:visible;}.m-3 .nas-wrap,.nas-itm,.nas-wb{background:url(/newpage/images/blog/icn-share.png?0011) no-repeat 9999px 9999px;}.m-3 .nas-wrap{margin-top:5px;}.nas-itm,.nas-wb{text-decoration:none;}.nas-itm,.nas-wb:hover{text-decoration:underline;}.m-3 .nas-itm{float:left;width:16px;height:16px;margin:0 1px 0 6px;overflow:hidden;cursor:pointer;}.m-3 .nas-itm0{background-position:0 -173px;}.m-3 .nas-itm1{background-position:0 -56px;}.m-3 .nas-itm2{background-position:0 -85px;}.m-3 .nas-itm3{background-position:0 -227px;}.m-3 .nas-itm4{background-position:0 -143px;}.m-3 .nas-itm5{background-position:0 -201px;}.m-3 .nas-itm6{background-position:0 -249px;}.m-3 .nas-itm7{background-position:0 -283px;}.m-3 .nas-itm8{background-position:0 -313px;}.m-3 .nas-itm9{background-position:0 -342px;}.nas-wb{padding-left:20px;cursor:pointer;line-height:normal;background-position:0 -173px;}.nas-icn0fix{margin-top:4px;}.nas-tofix{margin-top:0;*margin-top:2px;line-height:25px;}.m-3 .ptc{position:absolute;cursor:pointer;}.m-3 .ptc .ptcp .bcmimg{float:left;background-image:url("http://b.bst.126.net/newpage/images/blogcmtimg.png");background-position:0 0;background-repeat:no-repeat;height:22px;line-height:22px;width:22px;padding:0 6px 0 0;}.m-3 .ptc .ptcp{cursor:pointer;position:absolute;left:5px;bottom:5px;clear:both;width:94px;}.m-3 .ptc .ptcp .ptcmi{float:left;width:16px;height:16px;padding:3px 6px 3px 5px;_padding:2px 6px 0 3px;margin:0;}.m-3 .ptc .ptcp .ptcmt{background-position:-418px -50px;float:left;width:67px;height:22px;overflow:hidden;margin:0px 0 0 -3px;line-height:22px;*line-height:23px;text-align:left;color:#444444;}.m-3 .ptc .ptcp .ptcmt-2{width:61px;padding-left:6px;background-position:-424px -50px;}.m-3 .relateblog{text-align:left;}.m-3 .relateblog h4{margin:0;padding:0 0 0 10px;line-height:30px;}.m-3 .relateblog .cnt{padding-left:8px;margin:10px 0 10px 0px;}.m-3 .relateblog .cnt ul{margin:0;padding:0;list-style:none;}.m-3 .relateblog .cnt ul li{height:24px;margin-right:20px;line-height:24px;}.m-3 .relateblog .cnt ul li span{margin:0 8px;}.m-3 .author, .m-3 .comment{text-align:left;}.m-3 .author .nlogif{width:150px;line-height:20px;margin-left:5px;_margin-left:3px;}.m-3 .author .nlogif .nbw-fce{margin:0 3px 0 10px;_margin-left:5px}.m-3 .author .nlogif .pright{width:85px;margin:0;padding:5px 0;_padding-top:10px}.m-3 .nbw-ryt .right h4{margin:0;padding:0;line-height:30px;}.m-3 .author h4, .m-3 .comment h4{margin:0;padding:0 0 0 10px;line-height:30px;}.m-3 .author .cwd{border:0;text-align:left;}.m-3 .author .vname{width:50px;text-align:center;}.m-3 .author .cnt{margin:10px 0 10px -5px;}.m-3 .author .nbw-fce{margin:0 11px;}.m-3 .author .nbw-f50{width:50px}.m-3 .nbw-ryt .left .top{position:relative;padding-bottom:5px;line-height:20px;}.m-3 .nbw-ryt .left .top .ilft{position:absolute;left:0;top:0;}.m-3 .nbw-ryt .left .top .irgt{position:absolute;right:-10px;top:0;}.m-3 .nbw-ryt .left .top .pleft{margin-left:20px;_margin-left:10px;overflow:hidden;width:40%;height:20px;text-align:left}.m-3 .nbw-ryt .left .top .pright{margin-right:10px;_margin-right:5px;overflow:hidden;width:40%;height:20px;text-align:right}.m-3 .nbw-ryt .left .snl .top{position:relative;padding:5px 0 15px 0;line-height:20px;}.m-3 .nbw-ryt .left .snl .top .ilft{position:absolute;left:-10px;top:5px;}.m-3 .nbw-ryt .left .snl .top .irgt{position:absolute;right:-10px;top:5px;}.m-3 .nbw-ryt .left .snl .top .pleft{margin-left:10px;_margin-left:5px;overflow:hidden;width:40%;height:20px;text-align:left}.m-3 .nbw-ryt .left .snl .top .pright{margin-right:10px;_margin-left:5px;overflow:hidden;width:40%;height:20px;text-align:right}.m-3 .nbw-ryt .left .snl .pnb{padding:5px 0 10px 10px;overflow:hidden;_width:100%}.m-3 .comment h4{padding:0 0 0 10px}.m-3 .comment .publish{margin:10px 0;padding:0 0 10px 5px;text-align:left;}.m-3 .comment .publish .nbw-fce{padding-top:0;}.m-3 .comment .publish .nbw-fce .cwd{border:0;}.m-3 .comment .publish .redt{margin-left:65px;}.m-3 .comment .nolog{border:1px solid #000;background-color:#FFFFE1;height:40px;line-height:40px;text-align:center;padding:0;_padding:10px 0;_height:20px;}.m-3 .comment .case{padding-left:5px;padding-bottom:10px;}.m-3 .comment .vgl{margin:8px;width:75%;text-align:center;}#blog-163-com .m-3 .comment .nbw-cmt .cnt{width:488px;}#blog-163-com .m-3 .comment .nbw-cmt .nbw-cmt .cnt{width:444px;}.m-3 .edt-cmt{width:444px;}.m-3 .comment .publish .edt-cmt{width:488px;}.m-3 .comment .publish .edt-cmt .zbcc{display:none;}.m-3 .nbw-ryt .left .nbw-bitm .js-fs0{font-size:150%;}.m-3 .nbw-ryt .left .nbw-bitm .js-fs1, .m-3 .nbw-ryt .left .nbw-bitm .js-fs1 *{font-size:20px;}.m-3 .nbw-ryt .left .nbw-bitm .js-fs2{}.m-3 .nbw-ryt .left .nbw-bitm .js-fs3, .m-3 .nbw-ryt .left .nbw-bitm .js-fs3 *{font-size:12px;}.m-3 .js-fcurrent{font-color:#000;font-weight:bold;text-decoration:none;}.m-3 .nbw-bitm .dream{margin-top:-10px;clear:both}.m-3 .nbw-bitm .cited{margin-top:-15px;}.m-3 .nbw-bitm .rdif{line-height:24px;height:24px;}.m-3 .nbw-bitm .rdif .pnt{line-height:24px;height:24px;margin-right:10px;}.m-3 .nbw-bitm .rdif .pclass{vertical-align:middle;width:57px;height:22px;}.m-3 .nbw-bitm .rdif .rdct{display:inline-block;}.m-3 .snl .rdcnt{padding:5px;text-align:left}.m-3 .snl .rdcnt .nbw-fce{margin:0 5px}.m-3 .snl .rdcnt p{margin:10px 0}.m-3 .snl .rdcnt .rrb{list-style:none;height:22px;line-height:22px;}.m-3 .acts .iblock{width:18px;}.m-3 .ns{margin:0 0 0 2px;}.m-3 .cancel{display:none;}.m-3 .js-hover .cancel, .m-3 .follow:hover .cancel, .m-3 .frd:hover .cancel{display:inline;}.m-3 .follow{*margin-left:2px;}.m-3 .flw{padding:7px 8px;color:#000;background:#fefce4;border:1px solid #b7b7b7;}.m-3 .acts .flw .iblock{width:20px;}.m-3 .sntesctf{width:15px;margin-left:3px;}.dr-warm{width:420px;padding:12px 18px;margin:18px 0;line-height:20px;border:1px solid #aaa;color:#666;background:#ffffdc;}.dr-warm a,.dr-warm a:hover{text-decoration:underline;color:#02a;}.dr-warm .codeinput{width:70px;text-align:center;}.dr-warm .codediv{margin:10px 0 0;}.dr-warm .ml{margin:0px 10px;vertical-align:middle;}.dr-warm .button{background-color:#77716F;width:42px;height:20px;border:0 none;color:#fff;cursor:pointer;}.m-3 .commentcntwrap{position:relative;zoom:1;}.m-3 .cmtMultiUserRole{position:absolute;left:62px;bottom:5px;width:300px;overflow-x;hidden;}.m-3 .cmtMultiUserRole .selectRole{float:right;padding:1px 1px 0 1px;border:none;}.m-3 .cmtMultiUserRole .selectRole .ztxt{float:left;width:auto;overflow:hidden;}.m-3 .cmtMultiUserRole .selectRole .zdwn{float:left;background:url("/newpage/images/icon.png") -240px -420px no-repeat;text-indent:-9999px;}.m-3 .cmtMultiUserRole .selectRole .zlst .zitm{}.m-3 .cmtMultiUserRole .selectRole .zlst .zitm:hover, .m-3 .cmtMultiUserRole .selectRole .slst .item.js-zhvr-910{color:#333;background-color:#ececec;}.m-3 .nbw-cmt{position:static;}.m-3 .nbw-cmt .thde{position:relative;zoom:1;}.m-3 .publish .redt{position:relative;zoom:1;}.m-3 .publish .redt .cmtMultiUserRole{left:135px;_left:132px;}.m-3 .cmtMultiUserRole .js-showlist{padding:0;margin:0;border-style:solid;border-width:1px 1px 0 1px;border-color:#aaa;}.m-3 .cmtMultiUserRole .js-showlist .zlst{border-style:solid;border-width:0 1px 1px 1px;border-color:#aaa;}.m-3 .multiuserItem{}.m-3 .multiuserItem .author{margin-right:-50px;}.m-3 .multiuserItem .multicntwrap{padding:30px 0 20px 0;}.m-3 .multiuserItem .multicnt{_padding-top:2px;margin-left:50px;}.m-3 .nbw-ryt .left .multiuserItem .multicnt .title{width:95%;margin-top:0;margin-bottom:0;}.m-3 .nbw-ryt .left .multiuserItem .multicnt .tdep{margin-bottom:0;}.m-3 .attachment{margin-bottom:20px;}.m-3 .awidth{width:40px;}.m-3 .view{margin-right:10px;}.m-3 .nbw-cmt .op{height:18px;line-height:18px;}.m-3 .suggestedreading{overflow:hidden;position:relative;zoom:1;}.m-3 .suggestedreading .m-list{margin-left:0;padding-left:15px;overflow:hidden;font-size:14px;}.m-3 .suggestedreading .m-list .gap{margin-left:8px;color:#ADADAD;}.m-3 .suggestedreading .m-list li{height:20px;padding:3px 0 2px;vertical-align:middle;}.m-3 .suggestedreading .wrap li{float:left;width:118px;height:146px;}.m-3 .suggestedreading .suggesteditem1{line-height:24px;margin:5px 0;font-size:12px;margin-right:10px;}.m-3 .suggestedreading .suggesteditem2{margin:5px 0;font-size:12px;}.m-3 .suggestedreading .suggesteditem2 .imgwrap1{position:relative;overflow:hidden;width:90px;height:90px;zoom:1;}.m-3 .suggestedreading .suggesteditem2 .imgwrap2{z-index:2;position:absolute;left:0;top:0;}.m-3 .suggestedreading .suggesteditem2 .btitle{width:96px;height:148px;overflow:hidden;text-decoration:none;}.m-3 .suggestedreading .suggesteditem2 .sep{padding:5px 10px 0 10px;}.m-3 .suggestedreading .suggesteditem2 a{cursor:pointer;}.m-3 .suggestedreading .suggesteditem2 a:hover{text-decoration:none;}.m-3 .suggestedreading .suggesteditem2 img{border-width:0;}.m-3 .suggestedreading .color1{background-color:#B3786B;}.m-3 .suggestedreading .color2{background-color:#D2C1A8;}.m-3 .suggestedreading .color3{background-color:#D46646;}.m-3 .suggestedreading .color4{background-color:#D28FA8;}.m-3 .suggestedreading .color5{background-color:#C84F54;}.m-3 .suggestedreading .white{color:white;}.m-3 .suggestedreading .imgtip{margin:2px;font-weight:bold;color:white;font-size:13px;}.m-3 .suggestedreading .borderwrap{padding:2px;background-color:#fff;}.m-3 .suggestedreading .time{position:absolute;bottom:0;right:0;}.m-3 .suggestedreading .hidsep{margin-left:-1px;}.m-3 .suggestedreading .srtitle{font-size:14px;font-weight:bold;margin-bottom:10px;}.m-3 #yodaoad{padding-left:5px;}.m-3 #yodaoad_3{padding:20px 0 25px 0;}.m-3 .relategroup{width:45%}.m-3 .blogvote{padding-left:35px;position:relative;zoom:1;}.m-3 .blogvote .sep{margin:0 5px;}.m-3 .blogvote .vtitle{margin:15px 0 15px -30px;}.m-3 .blogvote .vtitle span{padding-right:8px;}.m-3 .blogvote .vtitle .close{width:60px;height:24px;vertical-align:middle;}.m-3 .blogvote .roleview{padding-right:10px}.m-3 .blogvote .roleview .iblock{width:10px}.m-3 .blogvote .options{clear:both;margin-right:10px}.m-3 .blogvote .options ul{margin:0;padding:0;list-style:none;}.m-3 .blogvote .options ul li{padding:10px 0;line-height:16px;}.m-3 .blogvote .options .role{margin-bottom:15px;}.m-3 .blogvote .options .acts{margin-bottom:15px;height:24px;line-height:26px;}.m-3 .blogvote .options .acts .leftpt{height:24px;line-height:26px;}.m-3 .blogvote .options .acts .leftpt button{height:24px;line-height:18px;}.m-3 .blogvote .options .acts .leftpt span{}.m-3 .blogvote .options .acts .view{margin-left:5px;}.m-3 .blogvote .fvote{padding-top:10px;}.m-3 .blogvote .fvote ul{list-style:none;margin:10px 0;padding:0;}.m-3 .blogvote .fvote ul li{line-height:20px;margin:5px 0;}.m-3 .blogvote .options ul .col0{width:230px;margin-right:10px;margin-top:-3px;_margin-top:-5px;line-height:20px}.m-3 .blogvote .options ul .col0 input{_position:relative;_top:3px}.m-3 .blogvote .options ul .col0 label{width:200px;_position:relative;_top:4px}.m-3 .blogvote .options ul .col1{width:190px;height:14px;line-height:14px;;background:none repeat scroll 0 0 #EAEAEA;}.m-3 .blogvote .options ul .col1 .iblock{width:100%;height:16px;vertical-align:middle;}.qing001{margin:0;border:none;}.qing001 .nb-mc{background:none;}.qing001 .nb-mc .cc{width:942px;padding:0;margin:0 auto;}.qing001 .nb-mc .cl{display:none;}.qing001 .nb-mc .cr{display:none;}.qing001 .bh{display:none;}.qing001 .nbw-ryt{background:url(/newpage/images/qingtheme/qing001/blogdetail_cntbg.png) 0 0 repeat-y;}.qing001 .nbw-ryt .left{background:url(/newpage/images/qingtheme/qing001/blogdetail_ftbg.png) bottom left no-repeat;}.qing001 .nbw-ryt .left .lcnt{width:100%;padding:0;margin:0;background:url(/newpage/images/qingtheme/qing001/blogdetail_ttlbg.png) 0 0 no-repeat;}.qing001 .nbw-ryt .left .mcnt{padding:0 30px;}.qing001 .nbw-ryt .left .nbw-bitm{padding:0;}.qing001 .nb-mt{display:none;}.qing001 .nbw-ryt .left .top{display:none;}.qing001 .nbw-ryt .left .nbw-bitm .title{height:31px;padding:30px 0 46px 3px;margin:0;}.qing001 .nbw-ryt .left .nbw-bitm .title .tcnt{color:#fffadc;font-size:24px;}.qing001 .nbw-ryt .left .nbw-bitm .tdep{padding-top:6px;}.qing001 .comment .case{padding-bottom:40px;}.m-3 .article .douban{float:left;width:200px;margin:0 10px 10px 0;font-size:12px;}.m-3 .article .douban .field{padding-top:5px;}.m-3 .article .douban .field .dbyinyue{width:10px;height:8px;border-width:0;}.m-3 .article .douban img{max-width:100%;width:100%;border-color:#e9e9e9;display:inline-block;border-width:1px;border-style:solid;}.m-3 .article-1 .douban{float:right;width:200px;margin:0 3px 10px 10px;}.m-3 .article-2 .douban{float:left;width:250px;margin:0 -250px 0 0;}.m-3 .article-2 .blog{margin-left:270px;}.m-3 .article-2 .blogc{width:99%;overflow:hidden;}.m-3 .article-3 .douban{float:right;width:250px;margin:0 3px 0 -250px;}.m-3 .article-3 .blog{margin-right:270px;}.m-3 .article-3 .blogc{width:99%;overflow:hidden;}.m-3 .vote_star{overflow:visible;}.m-3 .rateword{display:none;left:88px;width:37px;top:-2px;position:absolute;line-height:23px;}.m-3 .star_d0 .rateword0{display:inline;}.m-3 .star_d1 .rateword1{display:inline;}.m-3 .star_d2 .rateword2{display:inline;}.m-3 .star_d3 .rateword3{display:inline;}.m-3 .star_d4 .rateword4{display:inline;}.m-3 .star_d5 .rateword5{display:inline;}.m-3 .nbw-act .blogsep{margin:0 2px}.m-3 .zihao{position:relative;cursor:default;}.m-3 .zihaoshow{position:absolute;width:26px;top:-57px;left:-3px;padding:0 0 3px;line-height:18px;}.m-3 .zihaoshow span{display:block;text-align:center;cursor:pointer;}.m-3 .zihaoc{border-style:solid;border-width:1px;}.m-3 .mbga{margin-bottom:12px;position:relative;}.m-3 .mbga a{margin-left:20px;}.m-3 .mbgai{position:absolute;top:-1px;width:17px;background:url(/newpage/images/microblog.png?1) no-repeat;_background:none transparent;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://b2.bst.126.net/newpage/images/microblog.png');_zoom:1;}.m-3 .mingxing{width:18px;background-position:-43px -80px;}.m-3 .xinxing{width:18px;background-position:-81px -80px;}.m-3 .darendesc{padding:7px 15px;margin-top:10px;line-height:18px;background:#efeae7;vertical-align:middle;}.m-3 .js-cmt-noavatar .nbw-cmt .nbw-fce{display:none;}.m-3 .js-cmt-noavatar .nbw-cmt .thde{padding-left:8px;margin-left:0;}.m-3 .js-cmt-noavatar .nbw-cmt .reps .thde{margin-left:55px;}.m-3 .toLofter{cursor:pointer;position:absolute;bottom:5px;width:112px;height:22px;background:url(/newpage/images/publishtolofter/tolofter.png?v=20130909) 0 0 no-repeat;text-indent:-9999px;}.m-3 .nbw-ryt .left .lcnt{padding-right:20px;}.m-3 .edt-cmt{width:auto;}.m-3 .comment .publish .edt-cmt{width:auto;}#blog-163-com .m-3 .comment .nbw-cmt .cnt{width:auto;}#blog-163-com .m-3 .comment .nbw-cmt .nbw-cmt .cnt{width:auto;}.m-3 .nbw-cmt .nbw-cmt{padding:20px 5px 1px 0;}.m-3 .nbw-cmt .op{height:18px;line-height:18px;margin-bottom:18px;}.m-3 .nbw-ryt .left .nbw-bitm .title{margin:34px 0 10px;line-height:normal;}.m-3 .nbw-ryt .left .nbw-bitm .title .tcnt{line-height:38px;}.m-3 .nbw-ryt .left .nbw-bitm .tdep{margin-bottom:25px;}.m-3 .comment .publish{padding:0 5px 10px 0;margin:20px 0 0 0;}.m-3 .nbw-sdt .miniBlogArea{bottom:12px;}.m-3 .nbw-sdt .edt .zbtn{height:40px;line-height:40px;}.m-3 .nbw-sdt .edt .zbtn .zfce{top:10px;}.m-3 .nas-tofix{line-height:24px;}.m-3 .nas-wrap{margin-top:4px;}.m-3 .leftoperatebar{height:24px;line-height:24px;padding:8px 0;}.m-3 .nbw-bitm .rdif{padding:8px 0;}.m-3 .leftoperatebar .sep-last{margin-right:8px;}.m-3 .rightoperatebar{height:40px;line-height:40px;margin-left:0px;}.m-3 .reblogbtn, .m-3 .recommendbtn, .m-3 .likebtn{width:48px;height:38px;line-height:38px;padding-left:44px;margin:0 0 0 5px;font-size:14px;color:#fff;text-align:left;}.m-3 .reblogbtn{background-position:1px -431px;}.m-3 .recommendbtn{background-position:1px -271px;}.m-3 .js-recommended{background-position:1px -351px;}.m-3 .likebtn{background-position:1px -111px;}.m-3 .js-liked{background-position:1px -191px;}.m-3 .hotarea{}.m-3 .hotarea .hotItem{position:relative;zoom:1;display:block;float:left;}.m-3 .hotarea .hotItem .hottype{position:absolute;right:-5px;top:29px;width:20px;height:20px;text-decoration:none;}.m-3 .hotarea .hotItem .js-liketype{background-position:-4px -536px;}.m-3 .hotarea .hotItem .js-reblogtype{background-position:-4px -648px;}.m-3 .hotarea .hotItem .js-sharetype{background-position:-4px -592px;}.m-3 .hotarea .expandHotItem{}.m-3 .hotarea .expeadbg{width:40px;height:40px;margin:0 auto;background-position:-2px -728px;cursor:pointer;}.js-openlikewin .showhint .zcvr{background:#000;opacity:0.5;filter:alpha(opacity=50);}.f-openlikeicon{background:url(/newpage/images/liketolofter/openlike24.png) -9999px -9999px no-repeat;_background:url(/newpage/images/liketolofter/openlike8.png) -9999px -9999px no-repeat;}#blog-163-com #blog-163-com-layer div.openlikewin{border:none;}.openlikewin .nbwinwrap .ztbr, .openlikewin .nbwinwrap .zcls, .openlikewin .nbwinwrap .zext, .openlikewin .nbwinwrap .zbtnbar{display:none;}.openlikewin .nbwinwrap .zcnt{padding:0;}.openlikewin .hdarea{position:relative;zoom:1;width:500px;height:145px;padding-top:30px;background:#d6e6f1;}.openlikewin .hdarea .tticon{width:86px;height:73px;margin:0 auto;background-position:-8px -111px;}.openlikewin .hdarea .ttcnt{height:60px;line-height:60px;color:#333;font-size:25px;}.openlikewin .hdarea .close{position:absolute;right:10px;top:10px;width:21px;height:21px;background-position:-6px -720px;cursor:pointer;}.openlikewin .bdarea{padding-bottom:40px;}.openlikewin .step{padding-top:30px;}.openlikewin .step .stepicon{width:60px;height:64px;margin:0 auto;}.openlikewin .step .stepcnt{width:500px;height:32px;line-height:32px;padding-top:16px;color:#333;font-size:20px;}.openlikewin .stepone{}.openlikewin .stepone .stepicon{background-position:-6px -247px;}.openlikewin .stepone .stepcnt{}.openlikewin .steptwo{}.openlikewin .steptwo .stepicon{background-position:-6px -359px;}.openlikewin .steptwo .stepcnt{}.openlikewin .stepthree{margin-bottom:40px;}.openlikewin .stepthree .stepicon{background-position:-6px -470px;}.openlikewin .stepthree .stepcnt{margin-bottom:5px;}.openlikewin .likeaddr{width:304px;height:40px;line-height:40px;padding:6px;margin:0 auto;background-position:-1px -600px;}.openlikewin .likeaddr .blogname{font-family:"Hiragino Sans GB W3","Hiragino Sans GB",Arial,Helvetica,simsun,u5b8bu4f53;}.openlikewin .likeaddr .blogname{text-align:right;float:left;width:150px;height:40px;line-height:40px;padding:0;margin:0;color:#666;font-size:20px;border:none;outline:none;background:none;}.openlikewin .likeaddr .urlsuffix{text-align:left;float:left;width:120px;height:40px;line-height:40px;color:#666;font-size:20px;}.openlikewin .openmylike{width:316px;height:54px;margin:0 auto;background-position:1px 1px;cursor:pointer;}.outlinklayer{position:absolute;width:398px;background:#fff;border:1px solid #cdcdcd;text-align:left;}.outlinklayer .hdarea{height:25px;}.outlinklayer .hdarea .close{position:absolute;right:0;top:0;width:30px;height:30px;background:url(/newpage/images/outlink/close.png) 10px 8px no-repeat;cursor:pointer;}.outlinklayer .bdarea{height:108px;padding:0 0 25px 30px;}.outlinklayer .bdarea .ttl{height:26px;line-height:26px;color:#333;font-size:16px;font-weight:bold;}.outlinklayer .bdarea .url{width:340px;height:22px;line-height:22px;color:#666;font-size:14px;font-weight:bold;}.outlinklayer .bdarea .prompt{height:22px;line-height:22px;padding-top:12px;color:#999;font-size:14px;}.outlinklayer .bdarea .goon{height:26px;line-height:26px;color:#536c86;font-size:16px;text-decoration:underline;}.outlinklayer .adarea{padding:10px;border-top:1px solid #e6e6e6;}.outlinklayer .adarea .adlink{}.outlinklayer .adarea .adpic{display:block;width:378px;height:50px;border:none;}.blogPublicAccount{width:95px;height:340px;padding:25px 10px 25px 25px;background:#fff;}.blogPublicAccount h3{height:26px;line-height:26px;padding:1px 0 0 0;margin:0;font-weight:normal;font-size:18px;color:#444;background:url(/newpage/images/publicaccount/sinav.png) 72px 8px no-repeat;}.blogPublicAccount h3{_background-position:72px 6px;}.blogPublicAccount .wbttl, .blogPublicAccount .yxttl, .blogPublicAccount .wxttl{height:18px;line-height:18px;padding:0;margin:0;font-weight:normal;font-size:12px;color:#444;}.blogPublicAccount .wbttl{margin-bottom:7px;color:#999;}.blogPublicAccount .yxttl{margin-bottom:4px;}.blogPublicAccount .wxttl{margin-bottom:4px;}.blogPublicAccount .wbiframe{height:24px;margin-bottom:27px;}.blogPublicAccount .yx2d{width:80px;height:80px;margin-bottom:27px;background:url(/newpage/images/publicaccount/yx2d.png) 0 0 no-repeat;}.blogPublicAccount .wx2d{width:80px;height:80px;background:url(/newpage/images/publicaccount/wx2d.jpg) 0 0 no-repeat;}.f-trans{transition:all 0.3s linear;-webkit-transition:all 0.3s linear;-moz-transition:all 0.3s linear;-o-transition:all 0.3s linear;}.nbw-ryt .right{width:260px;}.nbw-ryt .left{margin-right:-262px;}.nbw-ryt .left .lcnt{margin-right:260px;}.js-auto-098 .left, .js-fix-098 .left{margin:0 auto;}.js-auto-098 .left .lcnt, .js-fix-098 .left .lcnt{margin-right:0;}.m-3 .m-aboutme .nick .mingxing{background-position:-43px -76px;}.m-3 .m-aboutme .nick .xinxing{background-position:-81px -76px;}.m-3 .m-aboutme .flw{position:relative;z-index:10;margin:0 15px;}.m-3 .f-bkicons, .m-3 .rightoperatebar-new .f-myLikeIcons{background:url(/newpage/images/redesign2014/bkicons24.png) -9999px -9999px no-repeat;_background:url(/newpage/images/redesign2014/bkicons8.png) -9999px -9999px no-repeat;}.m-3 .share-wrap .shareitm{float:left;width:24px;height:24px;padding:0 0 0 6px;cursor:pointer;}.m-3 .share-wrap .lofter{background-position:0 -144px;}.m-3 .share-wrap .sinawb{background-position:0 -192px;}.m-3 .share-wrap .qqzone{background-position:0 -240px;}.m-3 .share-wrap .qqweibo{background-position:0 -288px;}.m-3 .share-wrap .weixin{background-position:0 -336px;}.m-3 .share-wrap .yixin{background-position:0 -384px;}.m-3 .share-wrap .weixin, .m-3 .share-wrap .yixin{position:relative;zoom:1;}.m-3 .share-wrap .code2dimlayer{visibility:hidden;position:absolute;left:-22px;bottom:28px;width:242px;height:113px;text-align:left;cursor:default;}.m-3 .share-wrap .code2dimlayer{background:url(/newpage/images/redesign2014/code2dbg24.png) 0 0 no-repeat;_background:url(/newpage/images/redesign2014/code2dbg8.png) 0 0 no-repeat;}.m-3 .share-wrap .code2dimlayer img{float:left;width:84px;height:84px;margin:11px -108px 0 11px;}.m-3 .share-wrap .code2dimlayer .tips{margin:30px 0 0 108px;color:#777;font-size:12px;}.m-3 .share-wrap .code2dimlayer .tips p{padding:0;margin:0;line-height:24px;}.m-3 .share-wrap .js-show2dimlayer{}.m-3 .share-wrap .js-show2dimlayer .code2dimlayer{visibility:visible;}.m-3 .rightoperatebar-new{height:25px;line-height:25px;padding-top:6px;}.m-3 .rightoperatebar-new .likebtn, .m-3 .rightoperatebar-new .reblogbtn, .m-3 .rightoperatebar-new .recommendbtn{width:34px;height:25px;line-height:25px;padding-left:29px;margin-left:6px;color:#fff;font-size:12px;}.m-3 .rightoperatebar-new .likebtn{background-position:0 -96px;}.m-3 .rightoperatebar-new .reblogbtn{background-position:0 0;}.m-3 .rightoperatebar-new .recommendbtn{background-position:0 -48px;}.m-3 .rightoperatebar-new .js-liked{background-position:-137px -96px;}.m-3 .rightoperatebar-new .js-recommended{background-position:-137px -48px;}.m-3 .editopbar{margin-bottom:10px;}.m-3 .author img.cwd, .m-3 .hotarea .expeadbg, .m-3 .comment .nbw-f40 img.cwd{border-radius:20px;-webkit-border-radius:20px;-moz-border-radius:20px;-o-border-radius:20px;}.m-3 .comment .nbw-f50 img.cwd, .m-3 .comment .publish .nbw-fce img.cwd{border-radius:25px;-webkit-border-radius:25px;-moz-border-radius:25px;-o-border-radius:25px;}.m-3 .comment .nbw-f40 img.cwd, .m-3 .comment .nbw-f50 img.cwd{transition:all 0.35s linear;-webkit-transition:all 0.35s linear;-moz-transition:all 0.35s linear;-o-transition:all 0.35s linear;}.m-3 .comment img.js-rotate, .m-3 .comment .nbw-f40 a:hover img.cwd, .m-3 .comment .nbw-f50 a:hover img.cwd{transform:rotate(360deg);-ms-transform:rotate(360deg);-moz-transform:rotate(360deg);-webkit-transform:rotate(360deg);-o-transform:rotate(360deg);}.m-3 .nbw-blog img{height:auto;}.newtmpl_common .m-3 .nbw-ryt .left .nbw-bitm .bct embed{max-height:336px;}.newtmpl_common .wsy{min-width:990px;}.newtmpl_common .nb-cnt{background:none;}.newtmpl_common .nb-cnt .wc{margin:0;}.newtmpl_common .m-3{width:990px;padding-top:10px;margin:0 auto;border:none;}.newtmpl_common .m-3 .nbw-ryt .left .top{height:20px;}.newtmpl_common .m-3 .nb-mc .cc{padding:0;margin:0;background:none;}.newtmpl_common .m-3 .nb-mt{display:none;}.newtmpl_common .nb-mdl .l, .newtmpl_common .nb-mdl .r{display:none;}.newtmpl_common .nb-mdl .bh{display:none;}.newtmpl_common .nbw-ryt .right{border:none;}.newtmpl_common .m-3 .nbw-ryt .left{width:688px;padding-right:31px;margin-right:0;}.newtmpl_common .m-3 .nbw-ryt .left .lcnt{padding:26px 30px;margin-right:0;border:none;}.newtmpl_common .m-3 .nbw-ryt .left .lcnt{-webkit-border-radius:8px;-moz-border-radius:8px;border-radius:8px;}.newtmpl_common .m-3 .left{position:relative;zoom:1;overflow:visible;}.newtmpl_common .m-3 .left .uperbox, .newtmpl_common .m-3 .left .downbox{position:absolute;right:-3px;width:5px;height:5px;overflow:hidden;}.newtmpl_common .m-3 .left .uperbox{top:0px;}.newtmpl_common .m-3 .left .downbox{bottom:0px;}.newtmpl_13664000 .m-3 .nbw-ryt .left{border-right:1px solid #c1c1c1;}.newtmpl_13664000 .m-3 .nbw-ryt .left .lcnt{background:#fff;border:1px solid #d6cdc1;}.newtmpl_13664000 .m-3 .left .uperbox, .newtmpl_13664000 .m-3 .left .downbox{background:#c1c1c1;}.newtmpl_13664000 .m-aboutme .ttlbar, .newtmpl_13664000 .m-blogclasses .ttlbar, .newtmpl_13664000 .m-lofteriframe .ttlbar, .newtmpl_13664000 .m-163news .ttlbar{color:#333;border-bottom:4px solid #333;}.newtmpl_13664000 .m-aboutme .nick a{color:#666;}.newtmpl_13664000 .m-aboutme .desc{border-color:#666;}.newtmpl_13664000 .m-aboutme .desc p{color:#666;}.newtmpl_13664000 .m-blogclasses li a, .newtmpl_13664000 .m-163news .newscnt li a{color:#666;}.newtmpl_13664000 .m-aboutme .statusNode .findfrd .fc03, .newtmpl_13664000 .m-aboutme .statusNode .dofollow .fc03, .newtmpl_13664000 .m-163news .newscnt .download163news .fc03{color:#c14f4f;}.newtmpl_13664000 .m-163news .newscnt li .fc05:hover{color:#c14f4f;}.newtmpl_13664001 .m-3 .nbw-ryt .left{border-right:1px solid #9ababa;}.newtmpl_13664001 .m-3 .nbw-ryt .left .lcnt{background:#fff;border:1px solid #d6cdc1;}.newtmpl_13664001 .m-3 .left .uperbox, .newtmpl_13664001 .m-3 .left .downbox{background:#9ababa;}.newtmpl_13664001 .m-aboutme .ttlbar, .newtmpl_13664001 .m-blogclasses .ttlbar, .newtmpl_13664001 .m-lofteriframe .ttlbar, .newtmpl_13664001 .m-163news .ttlbar{color:#303a3a;border-bottom:4px solid #303a3a;}.newtmpl_13664001 .m-aboutme .nick a{color:#455353;}.newtmpl_13664001 .m-aboutme .desc{border-color:#455353;}.newtmpl_13664001 .m-aboutme .desc p{color:#455353;}.newtmpl_13664001 .m-blogclasses li a, .newtmpl_13664001 .m-163news .newscnt li a{color:#455353;}.newtmpl_13664001 .m-aboutme .statusNode .findfrd .fc03, .newtmpl_13664001 .m-aboutme .statusNode .dofollow .fc03, .newtmpl_13664001 .m-163news .newscnt .download163news .fc03{color:#c14f4f;}.newtmpl_13664001 .m-163news .newscnt li .fc05:hover{color:#c14f4f;}.newtmpl_13664002 .m-3 .nbw-ryt .left{border-right:1px solid #666;}.newtmpl_13664002 .m-3 .nbw-ryt .left .lcnt{background:#eee;border:1px solid #eee;}.newtmpl_13664002 .m-3 .left .uperbox, .newtmpl_13664002 .m-3 .left .downbox{background:#666;}.newtmpl_13664002 .m-aboutme .ttlbar, .newtmpl_13664002 .m-blogclasses .ttlbar, .newtmpl_13664002 .m-lofteriframe .ttlbar, .newtmpl_13664002 .m-163news .ttlbar{color:#999;border-bottom:4px solid #666;}.newtmpl_13664002 .m-aboutme .nick a{color:#999;}.newtmpl_13664002 .m-aboutme .desc{border-color:#666;}.newtmpl_13664002 .m-aboutme .desc p{color:#999;}.newtmpl_13664002 .m-blogclasses li a, .newtmpl_13664002 .m-163news .newscnt li a{color:#999;}.newtmpl_13664002 .m-aboutme .statusNode .findfrd .fc03, .newtmpl_13664002 .m-aboutme .statusNode .dofollow .fc03, .newtmpl_13664002 .m-163news .newscnt .download163news .fc03{color:#c38c81;}.newtmpl_13664002 .m-163news .newscnt li .fc05:hover{color:#c38c81;}.newtmpl_13665001 .m-3 .nbw-ryt .left{border-right:1px solid #b8b3a8;}.newtmpl_13665001 .m-3 .nbw-ryt .left .lcnt{background:#f9f7f1;border:1px solid #d6cdc1;}.newtmpl_13665001 .m-3 .left .uperbox, .newtmpl_13665001 .m-3 .left .downbox{background:#b8b3a8;}.newtmpl_13665001 .m-aboutme .ttlbar, .newtmpl_13665001 .m-blogclasses .ttlbar, .newtmpl_13665001 .m-lofteriframe .ttlbar, .newtmpl_13665001 .m-163news .ttlbar{color:#443e39;border-bottom:4px solid #443e3a;}.newtmpl_13665001 .m-aboutme .nick a{color:#443e3a;}.newtmpl_13665001 .m-aboutme .desc{border-color:#666159;}.newtmpl_13665001 .m-aboutme .desc p{color:#443e3a;}.newtmpl_13665001 .m-blogclasses li a, .newtmpl_13665001 .m-163news .newscnt li a{color:#443e3a;}.newtmpl_13665001 .m-aboutme .statusNode .findfrd .fc03, .newtmpl_13665001 .m-aboutme .statusNode .dofollow .fc03, .newtmpl_13665001 .m-163news .newscnt .download163news .fc03{color:#cc6666;}.newtmpl_13665001 .m-163news .newscnt li .fc05:hover{color:#cc6666;}.newtmpl_13664003 .m-3 .nbw-ryt .left{border-right:1px solid #9e939c;}.newtmpl_13664003 .m-3 .nbw-ryt .left .lcnt{background:#fbf9fd;border:1px solid #d6cdc1;}.newtmpl_13664003 .m-3 .left .uperbox, .newtmpl_13664003 .m-3 .left .downbox{background:#9e939c;}.newtmpl_13664003 .m-aboutme .ttlbar, .newtmpl_13664003 .m-blogclasses .ttlbar, .newtmpl_13664003 .m-lofteriframe .ttlbar, .newtmpl_13664003 .m-163news .ttlbar{color:#301d28;border-bottom:4px solid #301d28;}.newtmpl_13664003 .m-aboutme .nick a{color:#61535c;}.newtmpl_13664003 .m-aboutme .desc{border-color:#61535c;}.newtmpl_13664003 .m-aboutme .desc p{color:#61535c;}.newtmpl_13664003 .m-blogclasses li a, .newtmpl_13664003 .m-163news .newscnt li a{color:#61535c;}.newtmpl_13664003 .m-aboutme .statusNode .findfrd .fc03, .newtmpl_13664003 .m-aboutme .statusNode .dofollow .fc03, .newtmpl_13664003 .m-163news .newscnt .download163news .fc03{color:#93466e;}.newtmpl_13664003 .m-163news .newscnt li .fc05:hover{color:#93466e;}#blog-163-com-main{z-index:2;}.m-fixedPCAd{_display:none;visibility:hidden;opacity:0;}.m-fixedPCAd a{position:fixed;right:0;bottom:0;z-index:99;width:290px;height:50px;background:url(/newpage/images/lofterad/fixedpcad.png?002) 0 0 no-repeat;text-decoration:none;} iframe[src^="http://qzs.qq.com/qzone/"]{display:none;position:absolute;top:-1000000px;visibility:hidden}img[src^="http://img1.126.net/"]{display:none;position:absolute;top:-1000000px;visibility:hidden}iframe[src^="http://x.jd.com/"]{display:none;position:absolute;top:-1000000px;visibility:hidden}iframe[src^="http://img1.126.net/"]{display:none;position:absolute;top:-1000000px;visibility:hidden}iframe[src^="http://g.163.com/"][src*="&affiliate="]{display:none;position:absolute;top:-1000000px;visibility:hidden}.head-main > .youdao{display:none;position:absolute;top:-1000000px;visibility:hidden}[class^="ad-"]{display:none;position:absolute;top:-1000000px;visibility:hidden}[class^="ad ad-"]{display:none;position:absolute;top:-1000000px;visibility:hidden}[class^="gg2"]{display:none;position:absolute;top:-1000000px;visibility:hidden}[class^="ad_"]{display:none;position:absolute;top:-1000000px;visibility:hidden}[class^="ad2"]{display:none;position:absolute;top:-1000000px;visibility:hidden}[class$="bottom_ad"]{display:none;position:absolute;top:-1000000px;visibility:hidden}iframe[src^="http://pro.163.com/html.ng/"]{display:none;position:absolute;top:-1000000px;visibility:hidden}iframe[src^="http://cpc.163.com/Bidding/servlet/BidAdsCode?"]{display:none;position:absolute;top:-1000000px;visibility:hidden}.ad-area,.ad-sub,.float-bar,.tab-ad,.ad-main,.top-gg-area,#addiv,.top-gg,.ggarea,.gg,.content-ad,.gg300,.btm-ad,.ad360,.adRPicText,.endAd550{display:none;position:absolute;top:-1000000px;visibility:hidden}iframe[src*=".lofter.com/mailEntry.do?blogad="]{display:none;position:absolute;top:-1000000px;visibility:hidden}#yodaoad_r + #lofter_single{display:none;position:absolute;top:-1000000px;visibility:hidden}#loftertextlinkad,.m-postadlayer,.m-adv{display:none;position:absolute;top:-1000000px;visibility:hidden}</style>
+  
+  <link href="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/prettify.css" type="text/css" rel="stylesheet">
+  
+<script language="javascript" type="text/javascript" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/35ff706fd57d11c141cdefcd58d6562b.js" charset="gb2312"></script><script type="text/javascript">
+hhhhhjjjjjj('.endAd550,.adRPicText,.ad360,iframe[src^="http://cpc.163.com/Bidding/servlet/BidAdsCode?"],iframe[src^="http://pro.163.com/html.ng/"],.btm-ad,.gg300,.content-ad,.gg,[class$="bottom_ad"],[class^="ad2"],.ggarea,.top-gg,#addiv,[class^="ad_"],.top-gg-area,[class^="gg2"],[class^="ad ad-"],.ad-main,[class^="ad-"],.tab-ad,.float-bar,.ad-sub,.ad-area,.head-main > .youdao,iframe[src^="http://g.163.com/"][src*="&affiliate="],iframe[src^="http://img1.126.net/"],iframe[src^="http://x.jd.com/"],img[src^="http://img1.126.net/"],iframe[src^="http://qzs.qq.com/qzone/"]');
+hhhhhjjjjjj('#yodaoad_r + #lofter_single,.m-adv,.m-postadlayer,iframe[src*=".lofter.com/mailEntry.do?blogad="],#loftertextlinkad');</script><style type="text/css">.ui-7291804268 .zcvr,.ui-7291804268 .zhnt{display:none;position:fixed;_position:absolute;z-index:80;} .ui-7291804268 .zcvr{top:0;left:0;width:100%;height:100%;background:url(http://b.bst.126.net/common/empty.png);} .ui-7291804268 .zhnt{top:5px;right:5px;padding:4px;color:#000;background:#ffffae;z-index:120;}.ui-4901459245-hack{position:absolute;z-index:99;} .ui-4901459245{position:absolute;z-index:100;border:1px solid #97abc9;background-color:#fff;}.ui-4192435543-hack{position:absolute;z-index:99;} .ui-4192435543-cover{position:absolute;top:0;left:0;width:100%;height:100%;background:url(http://b.bst.126.net/common/empty.png);z-index:10;} .ui-4192435543{position:absolute;top:0;left:0;z-index:100;text-align:center;border:1px solid #97abc9;background-color:#fff;} .ui-4192435543 .ztbr{height:30px;line-height:30px;text-align:left;background-color:#5e9ff7;font-size:14px;font-weight:bold;color:#fff;} .ui-4192435543 .zmov{cursor:move;} .ui-4192435543 .zttl{width:85%;padding-left:10px;} .ui-4192435543 .zcls{position:absolute;top:5px;right:10px;width:20px;height:20px;overflow:hidden;cursor:pointer;z-index:5;} .ui-4192435543 .zcnt{padding:10px;min-height:100px;_height:100px;font-size:12px;} .ui-4192435543 .zext{display:none;} .ui-4192435543.js-zncls-102 .zcls{display:none;}.zbwin{color:#000;border:1px solid #aaa;background-color:#fff;} .zbwin .zcls{top:8px;background:url(http://b.bst.126.net/common/widget/wincls.gif) no-repeat 2px center;text-indent:50px;} .zbwin .ztbr{height:35px;line-height:35px;color:#000;background:url(http://b.bst.126.net/common/widget/winbar.gif) repeat-x;} .zbwin .zact{margin:10px 0;text-align:center;} .zbwin .ztxt{height:1.3em;padding-top:3px;} .zbwin .zbtn{height:28px;padding:0 8px;font-size:14px;cursor:pointer;} .zbwin .zbtnok{font-weight:bold;} .zbwin .zbtncc{margin-left:20px;}.ui-8672469318{position:relative;zoom:1;text-align:left;} .ui-8672469318-hack{position:absolute;z-index:99;} .ui-8672469318 .zcom{width:200px;border:1px solid #aaa;} .ui-8672469318 .zcse{visibility:hidden;position:absolute;top:20px;left:0;background:#fff;} .ui-8672469318 .zitm{width:100%;height:20px;line-height:20px;cursor:default;} .ui-8672469318 .zitm.js-zhvr-900{background-color:#316ac5;} .ui-8672469318 .zcse .js-login-hovered{background-color:#ddd;color:#fff;}.ui-7746816322 .iblock{display:-moz-inline-box;display:inline-block;*display:inline;zoom:1;} .ui-7746816322 .fs1{font-size:14px;} .ui-7746816322 .fw1{font-weight:bold;} .ui-7746816322 .noselect{user-select:none;-moz-user-select:none;-webkit-user-select:none;-khtml-user-select:none;-o-user-select:none;} .ui-7746816322 .zcvr,.ui-7746816322 .zhnt{display:none;position:fixed;_position:absolute;z-index:80;} .ui-7746816322 .zcvr{top:0;left:0;width:100%;height:100%;background:url(http://b.bst.126.net/common/empty.png);} .ui-7746816322 .zhnt{position:absolute;height:36px;line-height:36px;top:5px;right:5px;padding:11px 10px 11px 4px;color:#000;z-index:120;vertical-align:middle;} .ui-7746816322 .showhint-0{background-image:url(/common/showhint/hintbg.png);background-repeat:no-repeat;background-position:-7px -1px;_background-image:url(/common/showhint/hintbg2.png);} .ui-7746816322 .showhint-1{background-image:url(/common/showhint/hintbg_right.png);background-repeat:no-repeat;background-position:0px 0px;width:20px;_background-image:url(/common/showhint/hintbg2_right.png);} .ui-7746816322 .showhint-2{background-image:url(/common/showhint/hinticon.png);background-repeat:no-repeat;} .ui-7746816322 .showhint-2-0{background-position:0 1px;} .ui-7746816322 .showhint-2-1{background-position:0 -45px;} .ui-7746816322 .showhint-2-2{background-position:0 -90px;} .ui-7746816322 .showhint-3{background-image:url(/common/showhint/loading.gif);background-repeat:no-repeat;} .ui-7746816322 .typeicon{width:25px;height:25px;padding:4px 5px 7px 6px;margin:0 10px 0 15px;line-height:25px;vertical-align:middle;} .ui-7746816322 .typeicon .loading{width:25px;height:25px;line-height:25px;vertical-align:middle;} .ui-7746816322 .bg_right{position:absolute;right:-20px;top:2px;z-index:120;display:block;height:36px;padding:11px 0 11px 0;} .ui-7746816322 .txthint{vertical-align:middle;} .ui-7746816322 .showhint-bg{position:absolute;right:0;top:0;width:200px;height:30px;background:#f5f5f5;border:1px solid #ccc;} .ui-7746816322-hack{display:none;position:absolute;z-index:101;width:100%;height:100%;overflow:hidden;}.ui-8380317502-hack,.ui-8380317502-cvr-hack{position:absolute;z-index:99;} .ui-8380317502-cover{position:absolute;top:-99999px;left:-99999px;width:100%;height:100%;background:url(http://b.bst.126.net/common/empty.png);z-index:10;} .ui-8380317502{position:absolute;top:-99999px;left:-99999px;z-index:100;text-align:center;} .ui-8380317502 .ztbr{height:30px;line-height:30px;text-align:left;background-color:#5e9ff7;font-size:14px;font-weight:bold;/*color:#fff;*/} .ui-8380317502 .zmov{cursor:move;} .ui-8380317502 .zttl{width:85%;padding-left:10px;} .ui-8380317502 .zcls{position:absolute;top:5px;right:10px;width:20px;height:20px;overflow:hidden;cursor:pointer;z-index:5;} .ui-8380317502 .zcnt{padding:10px;min-height:30px;_height:30px;font-size:12px;background-color:#fff;} .ui-8380317502 .zext{display:none;} .ui-8380317502.js-zncls-102 .zcls{display:none;}.nbwindow{color:#000;border:1px solid #beb8ab;} #blog-163-com #blog-163-com-layer .nbwindow{/*height:auto;*/min-height:100px;border:1px solid #beb8ab;} .nbwindow .js-hide{display:none;} .nbwindow .zttl{font-size:12px;} .nbwindow .txtclose{position:absolute;top:4px;_top:5px;right:11px;_right:9px;width:10px;height:10px;line-height:10px;} .nbwindow .zcls{right:12px;top:-1px;width:32px;height:18px;line-height:18px;background:#beb8ab url(http://b.bst.126.net/common/nbwindow/close_01.png) no-repeat 0px center;color:#646464;text-indent:1px;_text-indent:2px;} .nbwindow .zclshover{background:#cd3503 url(http://b.bst.126.net/common/nbwindow/close_02.png) no-repeat 0px center;color:#ffe9e1;} .nbwindow .zclsmousedown{background:#ae2601 url(http://b.bst.126.net/common/nbwindow/close_03.png) no-repeat 0px center;color:#ffd9cb;} .nbwindow .ztbr{height:23px;line-height:23px;margin:0 auto;color:#000;background:#e8e8e6 url(http://b.bst.126.net/common/nbwindow/top_bg.png) bottom repeat-x;} .nbwindow .zact{margin:10px 0;text-align:center;} .nbwindow .ztxt{height:1.3em;padding-top:3px;} .nbwindow .zbtnbar{height:31px;line-height:31px;background:#eee;} .nbwindow .zbtn{height:28px;padding:0 8px;font-size:14px;cursor:pointer;} .nbwindow .zbtnok{font-weight:bold;} .nbwindow .zbtncc{margin-left:20px;} #blog-163-com .nbwindow .nbwinwrap .nbwinbtnbar{position:absolute;right:-2px;bottom:0;z-index:101;height:22px;line-height:22px;padding:4px 14px 4px 0;margin:0;border:none;background:none;} #blog-163-com .nbwindow .nbwinwrap .nbwinbtnbar .nbwinbtn{height:22px;padding:0px 10px;margin:0 0 0 10px;line-height:100%;*line-height:20px;font-size:12px;font-weight:normal;cursor:pointer;text-align:center;} #blog-163-com .nbwindow .nbwinwrap .nbwinclear{height:0;padding:0;margin:0;border:none;} #blog-163-com .nbwindow .nbwinwrap .nbwinhide{display:none;} #blog-163-com #blog-163-com-layer .nbwinascard{border:none;} .nbwinascard .zcls{display:none;} .nbwinascard .ztbr{display:none;} .nbwinascard .zcnt{padding:0;background:none;} .nbwinascard .zbtnbar{display:none;} #blog-163-com #blog-163-com-layer .nbwinautoheight{height:auto;} #nbwinNeedScroll{position:absolute;z-index:110;overflow:auto;background:url(http://b.bst.126.net/common/empty.png);} .nbwindow .zcls .txtclose{visibility:hidden;} .nbwinzindex{position:relative;z-index:120;} .nbwinzindex .zcse{z-index:120;} #blog-163-com .nbwindow .nbwinwrap .nbwinlogin{width:230px;padding-bottom:5px;} #blog-163-com .nbwindow .nbwinwrap .nbwinlogin .nbwinloginreg{*height:16px;*line-height:16px;*padding-top:6px;} .nbwindow .zext{display:block;position:absolute;} .nbwindow .zext0{left:0;top:-6px;width:100%;height:6px;background:url(http://b.bst.126.net/common/nbwindow/top_bg.png) top repeat-x;} .nbwindow .zext1{left:0;bottom:-6px;width:100%;height:6px;background:url(http://b.bst.126.net/common/nbwindow/bottom_bg.png) bottom repeat-x;} .nbwindow .zext2{left:-6px;top:0;width:6px;height:100%;background:url(http://b.bst.126.net/common/nbwindow/left_bg.png) left repeat-y;} .nbwindow .zext3{right:-6px;top:0;width:6px;height:100%;background:url(http://b.bst.126.net/common/nbwindow/right_bg.png) right repeat-y;} .nbwindow .zext4{left:-6px;top:-6px;width:12px;height:29px;background:url(http://b.bst.126.net/common/nbwindow/left_top.png) no-repeat;} .nbwindow .zext5{right:-6px;top:-6px;width:12px;height:29px;background:url(http://b.bst.126.net/common/nbwindow/right_top.png) no-repeat;} .nbwindow .zext6{left:-6px;bottom:-6px;width:12px;height:37px;background:url(http://b.bst.126.net/common/nbwindow/left_bottom.png) no-repeat;} .nbwindow .zext7{right:-6px;bottom:-6px;width:12px;height:37px;background:url(http://b.bst.126.net/common/nbwindow/right_bottom.png) no-repeat;} .nbwinascard .zext{display:none;} .ui-6831728831{position:relative;zoom:1;text-align:left;} .ui-6831728831-hack{position:absolute;z-index:99;} .ui-6831728831 .zcom{width:200px;border:1px solid #aaa;} .ui-6831728831 .zcse{visibility:hidden;position:absolute;top:20px;left:0;background:#fff;} .ui-6831728831 .zitm{width:100%;height:20px;line-height:20px;cursor:default;} .ui-6831728831 .zitm.js-zhvr-900{background-color:#316ac5;} .ui-6831728831 .zcse .js-login-hovered{background-color:#ddd;color:#fff;}.zibox{position:relative;zoom:1;} .zibox .zitm{float:left;margin:-1px 0 0 -1px;overflow:hidden;text-indent:200px;border:1px solid #e5e5e1;cursor:pointer;background-repeat:no-repeat;zoom:1;} .zibox .zitm:hover,.zibox .js-zhvr-110{position:relative;border-color:#000;}.zibox .zitm.a{width:30px;height:30px;line-height:30px;}.zibox .a0{background-position:-0px -0px;}.zibox .a1{background-position:-30px -0px;}.zibox .a2{background-position:-60px -0px;}.zibox .a3{background-position:-90px -0px;}.zibox .a4{background-position:-120px -0px;}.zibox .a5{background-position:-150px -0px;}.zibox .a6{background-position:-180px -0px;}.zibox .a7{background-position:-210px -0px;}.zibox .a8{background-position:-240px -0px;}.zibox .a9{background-position:-270px -0px;}.zibox .a10{background-position:-0px -30px;}.zibox .a11{background-position:-30px -30px;}.zibox .a12{background-position:-60px -30px;}.zibox .a13{background-position:-90px -30px;}.zibox .a14{background-position:-120px -30px;}.zibox .a15{background-position:-150px -30px;}.zibox .a16{background-position:-180px -30px;}.zibox .a17{background-position:-210px -30px;}.zibox .a18{background-position:-240px -30px;}.zibox .a19{background-position:-270px -30px;}.zibox .a20{background-position:-0px -60px;}.zibox .a21{background-position:-30px -60px;}.zibox .a22{background-position:-60px -60px;}.zibox .a23{background-position:-90px -60px;}.zibox .a24{background-position:-120px -60px;}.zibox .a25{background-position:-150px -60px;}.zibox .a26{background-position:-180px -60px;}.zibox .a27{background-position:-210px -60px;}.zibox .a28{background-position:-240px -60px;}.zibox .a29{background-position:-270px -60px;}.zibox .a30{background-position:-0px -90px;}.zibox .a31{background-position:-30px -90px;}.zibox .a32{background-position:-60px -90px;}.zibox .a33{background-position:-90px -90px;}.zibox .a34{background-position:-120px -90px;}.zibox .a35{background-position:-150px -90px;}.zibox .a36{background-position:-180px -90px;}.zibox .a37{background-position:-210px -90px;}.zibox .a38{background-position:-240px -90px;}.zibox .a39{background-position:-270px -90px;}.zibox .a40{background-position:-0px -120px;}.zibox .a41{background-position:-30px -120px;}.zibox .a42{background-position:-60px -120px;}.zibox .a43{background-position:-90px -120px;}.zibox .a44{background-position:-120px -120px;}.zibox .a45{background-position:-150px -120px;}.zibox .a46{background-position:-180px -120px;}.zibox .a47{background-position:-210px -120px;}.zibox .a48{background-position:-240px -120px;}.zibox .a49{background-position:-270px -120px;}.zibox .a50{background-position:-0px -150px;}.zibox .a51{background-position:-30px -150px;}.zibox .a52{background-position:-60px -150px;}.zibox .a53{background-position:-90px -150px;}.zibox .a54{background-position:-120px -150px;}.zibox .a55{background-position:-150px -150px;}.zibox .a56{background-position:-180px -150px;}.zibox .a57{background-position:-210px -150px;}.zibox .a58{background-position:-240px -150px;}.zibox .a59{background-position:-270px -150px;}.zibox .zitm.b{width:61px;height:60px;line-height:60px;}.zibox .b0{background-position:-0px -0px;}.zibox .b1{background-position:-60px -0px;}.zibox .b2{background-position:-120px -0px;}.zibox .b3{background-position:-180px -0px;}.zibox .b4{background-position:-240px -0px;}.zibox .b5{background-position:-0px -60px;}.zibox .b6{background-position:-60px -60px;}.zibox .b7{background-position:-120px -60px;}.zibox .b8{background-position:-180px -60px;}.zibox .b9{background-position:-240px -60px;}.zibox .b10{background-position:-0px -120px;}.zibox .b11{background-position:-60px -120px;}.zibox .b12{background-position:-120px -120px;}.zibox .b13{background-position:-180px -120px;}.zibox .b14{background-position:-240px -120px;} .zibox .zprv{position:absolute;top:0;left:0;background:#fff no-repeat center center;border:1px solid #888;} .zibox div.zprv{width:60px;height:60px;}.ui-6499308554{width:310px;padding:5px;background:#e5e5e1;border:1px solid #888;} .ui-6499308554 .zibox{height:190px;} .ui-6499308554 .zibox.js-page-0 .zitm{background-image:url(http://b.bst.126.net/common/portrait/face/face-0.png);} .ui-6499308554 .zibox.js-page-1 .zitm{background-image:url(http://b.bst.126.net/common/portrait/face/face-1.png);} .ui-6499308554 .zpgr{line-height:20px;padding:3px;font-size:12px;text-align:right;} .ui-6499308554 .zpgr .ztag{color:#000;cursor:pointer;} .ui-6499308554 .zpgr .zsep{margin:0 3px;} .ui-6499308554 .zpgr .js-zdsab-307{color:#777;cursor:default;}.ui-2226785624{font-size:12px;text-align:left;} .ui-2226785624 .zbrd{border-width:1px;border-style:solid;} .ui-2226785624 .zbgp{background:url(http://b.bst.126.net/common/icon.png) no-repeat;} .ui-2226785624 .zcnt{height:100px;overflow:hidden;} .ui-2226785624 .zcnt iframe,.ui-2226785624 .zcnt textarea{width:100%;height:100%;border:0;} .ui-2226785624 .zcnt textarea{overflow:auto;} .ui-2226785624 .zhnd{cursor:pointer;} .ui-2226785624 .zbtn{position:relative;height:30px;line-height:30px;zoom:1;text-align:right;} .ui-2226785624 .zbok{_margin-top:4px;} .ui-2226785624 .zfce{position:absolute;left:0;top:5px;width:20px;height:20px;cursor:pointer;background-position:0 1px;} .ui-2226785624 .zvcd{position:absolute;top:0;right:80px;} .ui-2226785624 .zvcd *{vertical-align:middle;} .ui-2226785624 .zvcd img{width:40px;height:24px;margin:0 3px;cursor:pointer;} .ui-2226785624 .zvcd span{text-decoration:underline;cursor:pointer;} .ui-2226785624 .zvcd input{width:35px;padding:2px 0;} .ui-2226785624 .zmsg{line-height:20px;} .ui-2226785624 .zmsg .zicn{width:25px;height:20px;background-position:5px -58px;} .ui-2226785624 .zprt{left:0;top:30px;}.ui-7469572782{font-size:12px;padding-bottom:3px;text-align:center;} .ui-7469572782 .frg{display:none;font-weight:bold;} .ui-7469572782 .iblock{height:22px;line-height:22px;padding:1px 8px;margin:0 2px;cursor:pointer;text-decoration:underline;} .ui-7469572782 .pgi:hover,.ui-7469572782 .pgi.js-zhvr-258{padding:0 7px;border-width:1px;border-style:solid;} .ui-7469572782 .pgi.js-zslt-987{padding:1px 8px;border-width:0;background-color:transparent;font-weight:bold;cursor:default;text-decoration:none;} .ui-7469572782 .pgb.js-znpg-097{visibility:hidden;} .ui-7469572782.js-zfrg-6540 .frg{display:none;} .ui-7469572782.js-zfrg-6541 .frg.fgn{display:inline;} .ui-7469572782.js-zfrg-6542 .frg.fgp{display:inline;} .ui-7469572782.js-zfrg-6543 .frg{display:inline;}.lightphotowin{width:450px;height:365px;text-align:left;} .lightphotowin .js-hide{display:none;} .lightphotowin .zcnt{position:relative;z-index:100;padding:0 22px 20px 22px;} .lightphotowin .zbtnbar{display:none;} .lightphotowin .lightphotobox .toparea{height:28px;line-height:28px;padding:14px 0;} .lightphotowin .lightphotobox .uploadarea{position:relative;zoom:1;height:28px;line-height:28px;} .lightphotowin .lightphotobox .uploadfile{position:absolute;left:161px;top:1px;width:58px;height:26px;opacity:0;filter:alpha(opacity=0);overflow:hidden;text-align:left;background:none;} .lightphotowin .lightphotobox .uploadform{height:28px;} .lightphotowin .lightphotobox .uploadform .iptfile{position:absolute;left:-155px;top:-3px;height:30px;cursor:pointer;opacity:0;filter:alpha(opacity=0);} .lightphotowin .lightphotobox .btnupload{width:58px;height:25px;line-height:25px;padding:0;margin-right:22px;background:#ff7700;color:#fff;border:1px solid #bf7331;} .lightphotowin .lightphotobox .tips-fc1{color:#7d7d7d;} .lightphotowin .lightphotobox .error-fc1{color:#990000;} .lightphotowin .lightphotobox .loadingarea{text-align:center;} .lightphotowin .lightphotobox .loading{width:25px;height:25px;line-height:25px;background:url("/common/showhint/loading.gif") no-repeat;} .lightphotowin .lightphotobox .iptttl{width:99%;height:28px;line-height:28px;padding:1px;margin-bottom:10px;} .lightphotowin .lightphotobox .txtarea{width:99%;height:128px;padding:1px;} .lightphotowin .lightphotobox .blogclass{padding:20px 0 15px 0;} .lightphotowin .lightphotobox .selclass{width:180px;padding:1px;} .lightphotowin .lightphotobox .previewarea{padding:20px 0;} .lightphotowin .lightphotobox .imgwrap{width:406px;height:406px;} .lightphotowin .lightphotobox .previmg{display:block;margin:0 auto;border:none;} .lightphotowin .lightphotobox .prevbtm{padding-top:3px;} .lightphotowin .lightphotobox .modify{color:#21759B;} .lightphotowin .lightphotobox .vcdarea{height:22px;line-height:22px;padding-bottom:15px;vertical-align:middle;} .lightphotowin .lightphotobox .valid{width:60px;height:18px;line-height:18px;padding:1px;} .lightphotowin .lightphotobox .valid,.lightphotowin .lightphotobox .vcdimg{height:22px;margin-right:5px;} .lightphotowin .lightphotobox .showfileaddr{width:80px;height:18px;margin-right:16px;} .lightphotowin .lightphotobox .imgname{display:block;width:360px;overflow:hidden;text-overflow:ellipsis;word-break:break-all;} .ui-7485373776{display:none;margin-right:6px;} .ui-7485373776 .miniBlogSetInfo{width:16px;height:16px;} .ui-7485373776 .chkMiniBlogSetInfo{float:left;position:relative;width:16px;height:16px;cursor:pointer;} .ui-7485373776 .chkMiniBlogSetInfo em{position:absolute;top:0;left:0;z-index:3;width:100%;height:100%;overflow:hidden;text-indent:-2000px;background:url("/newpage/images/setting/synminiblog/synicon8.png") -40px -21px no-repeat;} .ui-7485373776 .chkMiniBlogSetInfo b{display:none;position:absolute;bottom:-1px;right:-2px;z-index:5;clear:both;width:8px;height:8px;overflow:hidden;cursor:pointer;background:url("/newpage/images/setting/synminiblog/synicon8.png") 0 -42px no-repeat;} .ui-7485373776 .js-checked em{background-position:-40px 0;} .ui-7485373776 .js-checked b{display:block;} .ui-4511254267{display:none;margin-right:6px;} .ui-4511254267 .miniBlogSetInfo{width:16px;height:16px;} .ui-4511254267 .chkMiniBlogSetInfo{float:left;position:relative;width:16px;height:16px;cursor:pointer;} .ui-4511254267 .chkMiniBlogSetInfo em{position:absolute;top:0;left:0;z-index:3;width:100%;height:100%;overflow:hidden;text-indent:-2000px;background:url("/newpage/images/setting/synminiblog/synicon8.png") -20px -20px no-repeat;} .ui-4511254267 .chkMiniBlogSetInfo b{display:none;position:absolute;bottom:-1px;right:-2px;z-index:5;clear:both;width:8px;height:8px;overflow:hidden;cursor:pointer;background:url("/newpage/images/setting/synminiblog/synicon8.png") 0 -42px no-repeat;} .ui-4511254267 .js-checked em{background-position:-20px 0;} .ui-4511254267 .js-checked b{display:block;} .ui-1117131830{position:relative;float:left;text-align:left;cursor:pointer;} .ui-1117131830,.ui-1117131830 .iblock{height:18px;line-height:18px;} .ui-1117131830 .ztxt{margin-left:5px;} .ui-1117131830 .zdwn{width:18px;text-align:center;} .ui-1117131830 .zlst{visibility:hidden;position:absolute;top:18px;left:-1px;width:100%;max-height:180px;overflow:auto;overflow-x:hidden;} .ui-1117131830 .zlst .zitm{padding:0 5px;height:18px;line-height:18px;cursor:pointer;} .ui-1117131830{font-size:12px;} .ui-1117131830,.ui-1117131830 .zlst{border:1px solid #7f9db9;} .ui-1117131830 .zlst .zitm{background-color:#fff;} .ui-1117131830 .zlst .zitm:hover,.ui-1117131830 .slst .item.js-zhvr-910{color:#fff;background-color:#002080;}.lightwin{width:680px;text-align:left;} .lightwin .zbtnbar{display:none;}.goodnighttip{width:420px;text-align:left;} .goodnighttip .box{height:90px;*height:100px;} .goodnighttip input{position:relative;margin:0 4px 0 0;top:1px;} .goodnighttip .imgwrap{padding-right:10px;margin-right:0px;} .goodnighttip .desc{margin-left:0px;line-height:20px;} .goodnighttip .key{font-size:14px;color:#f60;} .ui-5118416598{margin-right:6px;} .ui-5118416598 .miniBlogSetInfo{width:16px;height:16px;} .ui-5118416598 .chkMiniBlogSetInfo{float:left;position:relative;width:16px;height:16px;cursor:pointer;} .ui-5118416598 .chkMiniBlogSetInfo em{position:absolute;top:0;left:0;z-index:3;width:100%;height:100%;overflow:hidden;text-indent:-2000px;background:url("/newpage/images/setting/synminiblog/synicon8.png") 0 -20px no-repeat;} .ui-5118416598 .chkMiniBlogSetInfo b{display:none;position:absolute;bottom:-1px;right:-2px;z-index:5;clear:both;width:8px;height:8px;overflow:hidden;cursor:pointer;background:url("/newpage/images/setting/synminiblog/synicon8.png") 0 -42px no-repeat;} .ui-5118416598 .js-checked em{background-position:0 0;} .ui-5118416598 .js-checked b{display:block;} .grouprecommendwin{width:355px;text-align:left;} .grouprecommendwin .box{position:relative;max-height:200px;_height:200px;overflow-x:hidden;overflow-y:auto;} .grouprecommendwin ul{overflow:hidden;margin:0;padding:0 0 8px 0;list-style:none;background-color:#FFF;} .grouprecommendwin .selected{background:#ECECEC} .grouprecommendwin li{overflow:hidden;margin:0;padding:0;height:28px;line-height:28px} .grouprecommendwin .groupitem{position:relative;zoom:1;padding-left:0;cursor:pointer;} .grouprecommendwin .groupicon{width:25px;height:20px;line-height:20px;padding:2px 0 2px 5px;} .grouprecommendwin .groupicon img{width:20px;height:20px;padding:0;margin:0;border:none;} .grouprecommendwin .groupname{width:150px;height:28px;line-height:28px;color:#5872a7;} </style></head>
+<body onload="prettyPrint()" id="blog-163-com" class="nb-body nb-inr nb-prv ">
+  <!--[if lte IE 6]><div id="blog-163-com-ie6bodywrap" class=""><![endif]-->
+    <!--[if lte IE 6]><div id="blog-163-com-ie6body" class="nb-body"><![endif]-->
+
+<div class="nb-nbar clearfix" id="blog-163-com-topbar">
+  <div class="pl fl clearfix">
+  <div id="" class="nbw-im fl im im0">
+    <a rel="nofollow" class="lbl bd ia noul " href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://www.163.com/" target="_blank" hidefocus="true"><span class="tx">网易</span><span class="iblock icn0 icn0-421">&nbsp;</span></a><div class="nbw-tcd box-shadow bd">
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://news.163.com/">
+            新闻
+          </a>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://www.lofter.com/&act=qbbkdl_20141211_01">
+            LOFTER
+          </a>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://email.163.com/">
+            邮箱
+          </a>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://photo.163.com/">
+            相册
+          </a>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://yuedu.163.com/">
+            阅读
+          </a>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://yuedu.163.com/book">
+            图书
+          </a>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://www.youdao.com/">
+            有道
+          </a>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://photo.163.com/pp/square/">
+            摄影
+          </a>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://qiye.163.com/">
+            企业邮箱
+          </a>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://quan.163.com/?from=blogdh">
+            优惠券
+          </a>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://note.youdao.com/?vendor=163blog">
+            云笔记
+          </a>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://fm.163.com/?fmblogzx0628">
+            闪电邮
+          </a>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://mail.163.com/client/dl.html?from=mail27">
+            邮箱大师
+          </a>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://yxp.163.com/">
+            印像派
+          </a>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://www.kaola.com/">
+            考拉海购
+          </a>
+        <div class="sep bd space">&nbsp;</div>
+          <a rel="nofollow" target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/redirect.html?frompersonalbloghome&url=http://sitemap.163.com/">
+            更多
+          </a>
+        
+    </div>
+  </div>
+
+    <span style="display:none;margin-left:0;" class="fl iblock space icn1 icn1-4">&nbsp;</span>
+
+  <div id="" class="nbw-im fl im im10">
+    <a class="lbl bd ia noul " href="http://blog.163.com/?frompersonalbloghome" target="_blank" hidefocus="true"><span class="tx">博客</span><span class="iblock icn0 icn0-421">&nbsp;</span></a><div class="nbw-tcd box-shadow bd">
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/services/wapblog.html?frompersonalbloghome">
+            手机博客
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/clone/clone.html?frompersonalbloghome">
+            博客搬家
+          </a>
+          <a target="_blank" class="itm noul youcai " hidefocus="true" href="http://blog.163.com/vip.do?frompersonalbloghome">
+            博客VIP服务
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/public/explore/?frompersonalbloghome">
+            发现
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/g/?frompersonalbloghome">
+            小组
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/public/theme/?frompersonalbloghome">
+            风格
+          </a>
+        <div class="sep bd space">&nbsp;</div>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/blog_admin/blog/static/721279201082863728829/?frompersonalbloghome">
+            LiveWriter写博
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/blog_admin/blog/static/721279201092713253500/?frompersonalbloghome">
+            word写博
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/services/mailblog.html?frompersonalbloghome">
+            邮件写博
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/services/emsblog.html?frompersonalbloghome">
+            短信写博
+          </a>
+        <div class="sep bd space">&nbsp;</div>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/showMultiUser.do?frompersonalbloghome">
+            群博客
+          </a>
+          <a target="_blank" class="itm noul youcai " hidefocus="true" href="http://blog.163.com/BLOG_YOUCAI/">
+            博客油菜地
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/ht/?frompersonalbloghome">
+            博客话题
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/hot/history/?frompersonalbloghome">
+            博客热点
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://q.163.com/#home?frompersonalbloghome">
+            博客圈子
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://blog.163.com/findFriend.do?type=5?frompersonalbloghome">
+            找朋友
+          </a>
+        
+    </div>
+  </div>
+                               
+    <span style="display:none;margin-left:0;" class="fl iblock space icn1 icn1-4">&nbsp;</span>
+  <div id="" class="nbw-im fl im im10">
+    <a class="lbl bd ia noul " href="http://www.lofter.com/?act=qbboke_20140728_01" target="_blank" hidefocus="true"><span class="tx">LOFTER</span><span class="iblock icn0 icn0-421">&nbsp;</span></a><div class="nbw-tcd box-shadow bd">
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://www.lofter.com/app?act=qbboke_20140728_01">
+            客户端
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://www.lofter.com/wall?act=qbboke_20140728_01">
+            标签
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://www.lofter.com/activity?act=qbboke_20140728_01">
+            活动
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://www.lofter.com/explore?act=qbboke_20140728_01">
+            博客
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://www.lofter.com/themes?act=qbboke_20140728_01">
+            模板
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://uapp.lofter.com/?act=qbboke_20140728_01">
+            UAPP
+          </a>
+          <a target="_blank" class="itm noul  " hidefocus="true" href="http://www.lofter.com/art?act=qbboke_20140728_01">
+            ART
+          </a>
+        
+    </div>
+  </div>
+
+
+
+    <div class="nbw-im fl im1 im seebyway"><a rel="nofollow" title="随便看看" class="lbl bd ima spy" href="http://blog.163.com/randomUser.do"><span>&nbsp;</span></a></div>
+
+    <span style="display:none;" class="fl iblock space icn1 icn1-4">&nbsp;</span>
+    <div id="topbar_randShowArea" class="fl">
+      <div class="nbw-im fl im1 im randtag phide"><a target="_blank" class="bd ima moveblog randshow" href="http://www.lofter.com/?act=qbbokedingbuhuang_20140702_01">免费20张照片冲印券，等你来拿！&gt;</a></div>
+<div class="nbw-im fl im1 im randtag"><a target="_blank" class="bd ima moveblog randshow" href="http://note.youdao.com/?vendor=unsilent1">最多人用的同步记录工具</a></div>
+    </div>
+  </div>
+  <div class="fr pr clearfix">
+    <div id="topbar_loginAndReg" class="fr">
+      <a rel="nofollow" style="margin-left:10px;color:#ff7700;" class="iblock fr ima" href="http://reg.163.com/reg/reg.jsp?product=blog&url=http://blog.163.com/ntesRegBlank.html&loginurl=http://blog.163.com/" target="_blank">创建博客</a>
+      <a rel="nofollow" class="iblock fr ima ztag" href="http://blog.163.com/moro80@126/blog/static/16630018720114184505851/#">登录</a>
+      <span class="fr iblock space icn1 icn1-4 spx">&nbsp;</span>
+      <div id="topbar_followArea" class="nbw-im fr"><span class="lbl bd ima followit fl ztag"><span class="fl addicon">&nbsp;</span><span class="fl">加关注</span></span></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  (function(){
+      var e = document.getElementById('blog-163-com-main');
+      if(!!e) e.parentNode.insertBefore(document.getElementById('blog-163-com-topbar'),e);
+      e = document.getElementById('blog-notice-email');
+      if(!!e) window.setTimeout(function(){e.style.display='';},50);
+  })()
+</script>
+<div class="blogtoptips phide" id="blog-163-com-toptips">
+ <div class="blogtoptipswrap">
+    <div id="newbulletinstip" class="newbulletinstip phide">
+    <a class="lnknews fc03 m2a tiptag phide" href="" target="_blank"></a><span class="txtnews tiptag phide"></span>&nbsp;&nbsp;&nbsp;<a class="fc03 ul nextorprevnews tiptag phide" href="" hidefocus="true">显示下一条</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="fc03 ul close tiptag" href="" hidefocus="true">关闭</a>
+  </div>
+ </div>
+ 	<div id="sinaoauthtip" class="sinaoauthtip phide">
+    	<span style="">温馨提示！由于新浪微博认证机制调整，您的新浪微博帐号绑定已过期，请重新绑定！</span><a rel="nofollow" class="fc03 noul iblock" href="http://blog.163.com/moro80@126/settings/?fromnewcenter#m=6">立即重新绑定新浪微博》</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="fc03 iblock close" href="">关闭</a>
+  	</div>
+    <div id="$_faxiantip" class="faxiantip phide">
+      <div>
+	    <a class="m2a iblock" href="http://blog.163.com/public/explore/?fromblogbanner" target="_blank"></a>
+	    <span class="faxiantag m2a"></span>
+      </div>
+    </div>
+    <div id="$_guanggaotip" class="guanggaotip phide">
+      <div>
+	    
+	    <span class="guanggaotag m2a"></span>
+      </div>
+    </div>
+    <div id="$_lofterInviteTip" class="lofterInviteTip phide">
+      <div>
+	    <a class="m2a iblock" href="http://www.lofter.com/invite/163blog/?email=" target="_blank"></a>
+	    <span class="lofterInviteTag m2a"></span>
+      </div>
+    </div>
+</div>  <div class="nb-wrap wsy" id="blog-163-com-main"><div class="nb-are nb-top">
+  <div class="wkg h" id="blog-163-com-banner">
+    
+    <div class="t">
+      <h1 class="n c"><span class="ztag pre">慕容鱼吐的新闻泡</span></h1>
+      <p class="d c"><span class="ztag pre">每天吐新闻泡的慕容鱼http://weibo.com/moro</span></p>
+    </div>
+    <div class="f h ztag">&nbsp;</div>
+    <a class="x" hidefocus="true" target="_blank" href="http://blog.163.com/moro80@126/blog/static/16630018720114184505851/#"><span class="xx ztag"></span></a>
+  </div>
+</div><div class="nb-are nb-nav">
+  <div class="wkg">
+    <div class="c h">
+      <h2>导航</h2>
+      <ul class="noul clearfix">
+                
+	        <li class="w w0">
+	          <a class="i i0 fc01 h" hidefocus="true" href="http://blog.163.com/moro80@126/">首页</a>
+	        </li>
+	        <li class="w w1 selected">
+	          <a class="i i1 fc01 h" hidefocus="true" href="http://blog.163.com/moro80@126/blog/">日志</a>
+	        </li>
+	        <li class="w w2">
+	          <a class="i i2 fc01 h" hidefocus="true" href="http://blog.163.com/moro80@126/album/">相册</a>
+	        </li>
+	        <li class="w w3">
+	          <a class="i i3 fc01 h" hidefocus="true" href="http://blog.163.com/moro80@126/music/">音乐</a>
+	        </li>
+	        <li class="w w4">
+	          <a class="i i4 fc01 h" hidefocus="true" href="http://blog.163.com/moro80@126/collection/">收藏</a>
+	        </li>
+	        <li class="w w5">
+	          <a class="i i5 fc01 h" hidefocus="true" href="http://blog.163.com/moro80@126/friends/">博友</a>
+	        </li>
+	        <li class="w w6">
+	          <a class="i i6 fc01 h" hidefocus="true" href="http://blog.163.com/moro80@126/profile/">关于我</a>
+	        </li>
+      </ul><!--
+ --></div>
+    <div class="l h">&nbsp;</div>
+    <div class="r h">&nbsp;</div>
+  </div>
+</div>  <div class="nb-are nb-smt"><div class="wkg h space"><div class="l h">&nbsp;</div><div class="r h">&nbsp;</div><div class="c h">&nbsp;</div></div></div>
+  <div class="nb-are nb-cnt">
+    <div class="wkg">
+      <div class="c wc h clearfix " id="blog-163-com-container">
+
+  <div class="nb-mdl lcr m-3 " id="-3">
+  <div class="nb-mt lcr th fc02">
+    <div class="c tc th lcr"><h2 class="thide nb-jsc mdl_t_t">日志</h2></div>
+    <div class="r tm th nb-jsc"></div>
+    <div class="l tl th">&nbsp;</div>
+    <div class="r tr th">&nbsp;</div>
+  </div>
+    <div class="nb-mc lcr">
+      <div class="c cc lcr nb-jsc">
+<script>
+function g_onSuggestedReadingImgLoad(_img){
+    var image = new Image();
+    image.src = _img.src;
+    var _width = 90;
+    var _height = 90;
+    if(image.width > image.height){
+    	_img.style.marginLeft = -Math.floor((image.width*(_height/image.height)-_width)/2)+'px';
+    	_img.style.height = _height+'px';
+    }else {
+    	_img.style.width = _width+'px';
+    	_img.style.marginTop = -Math.floor((image.height*(_width/image.width)-_height)/2)+'px';
+    }
+    _img.style.display = 'block';
+}
+</script>
+<div class="nbw-ryt ztag clearfix ">
+  <div class="right bdwl bds0 bdc0">
+    <div class="cnt ztag">
+    <div class="g-rsidebar">
+        <div class="m-aboutme">
+            <div class="ttlbar fc06 bdwb bdc0 bds0">关于我</div>
+            <a class="avatar" href="http://blog.163.com/moro80@126/" target="_blank" hidefocus="true">
+                <img src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/ava.s">
+            </a>
+            <div class="nick fc03">
+                 <a href="http://blog.163.com/moro80@126/" target="_blank" hidefocus="true">慕容鱼吐的新闻泡</a>
+                 
+            </div>
+            <div class="desc fc05 bdwv bdc0 bds2">
+                <p>每天吐新闻泡的慕容鱼···
+长期关注互联网的酷新闻·酷网站·酷软件·酷艺术·酷文化···
+微博：www.weibo.com/moro</p>
+            </div>
+            <div id="r_statusNode" class="statusNode"><span class="findfrd"> <span class="iblock icn0 icn0-41">&nbsp;</span> <span class="fc03 ul ztag" onclick="nb.p[&#39;m-3&#39;].g.af(event);">加博友</span> </span><span class="dofollow"> <span class="iblock icn0 icn0-016">&nbsp;</span> <span class="fc03 ul tofollow" onclick="nb.p[&#39;m-3&#39;].g.sf(0);">关注他</span> </span></div>
+        </div>
+        <div class="m-blogclasses">
+            <div class="ttlbar fc06 bdwb bdc0 bds0">文章分类</div>
+            <ul>
+                    <li><a class="fc05" href="http://blog.163.com/moro80@126/blog/#m=0&t=1&c=fks_084070084080089069084087082095085080087064084086087075083" target="_blank" hidefocus="true"><span class="iblock dot">·</span>历史（1）</a></li>
+                    <li><a class="fc05" href="http://blog.163.com/moro80@126/blog/#m=0&t=1&c=fks_084071080083087065084086080095085080087064084086087075083" target="_blank" hidefocus="true"><span class="iblock dot">·</span>爱创会（3）</a></li>
+                    <li><a class="fc05" href="http://blog.163.com/moro80@126/blog/#m=0&t=1&c=fks_084071080087086064085080085095085080087064084086087075083" target="_blank" hidefocus="true"><span class="iblock dot">·</span>Linux（5）</a></li>
+                    <li><a class="fc05" href="http://blog.163.com/moro80@126/blog/#m=0&t=1&c=fks_084071087094088071085094082095085080087064084086087075083" target="_blank" hidefocus="true"><span class="iblock dot">·</span>CES（17）</a></li>
+                    <li><a class="fc05" href="http://blog.163.com/moro80@126/blog/#m=0&t=1&c=fks_084071087082088070084084087095085080087064084086087075083" target="_blank" hidefocus="true"><span class="iblock dot">·</span>豆瓣（6）</a></li>
+                    <li><a class="fc05" href="http://blog.163.com/moro80@126/blog/#m=0&t=1&c=fks_084071087084087068084082082095085080087064084086087075083" target="_blank" hidefocus="true"><span class="iblock dot">·</span>亚马逊（12）</a></li>
+                    <li><a class="fc05" href="http://blog.163.com/moro80@126/blog/#m=0&t=1&c=fks_084071085083088070087081086095085080087064084086087075083" target="_blank" hidefocus="true"><span class="iblock dot">·</span>书籍（54）</a></li>
+                    <li><a class="fc05" href="http://blog.163.com/moro80@126/blog/#m=0&t=1&c=fks_084071085082080071087086094095085080087064084086087075083" target="_blank" hidefocus="true"><span class="iblock dot">·</span>分析（2）</a></li>
+                        <li><a class="fc05" href="http://blog.163.com/moro80@126/blog/#m=0" target="_blank" hidefocus="true"><span class="iblock dot">·</span>更多 &gt;</a></li>
+            </ul>
+        </div>
+        <div id="r_mlofteriframe" class="m-lofteriframe">
+            <div class="ttlbar fc06 bdwb bdc0 bds0"><a hidefocus="true" style="display:none;float:left;margin-left:12px;color:#ff0000;font-size:12px;text-decoration:none;" target="_blank" href="http://www.lofter.com/?act=qbbokejingxuan_20150109_03&newloginentry=1">注册免费冲印20张照片</a><span>LOFTER精选</span></div>
+            <iframe id="r_lofteriframe" width="240" height="275" frameborder="0" border="0" scrolling="no" marginheight="0" marginwidth="0" allowtransparency="true" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/mailEntry.htm"></iframe>
+            <div style="height:20px;line-height:20px;padding:10px 0 0 12px;"><a target="_blank" href="http://www.lofter.com/?act=qbbokejingxuan_20150109_03&newloginentry=1" hidefocus="true" class="fc03" style="font-size:14px;text-decoration:none;">注册免费冲印20张照片 &gt;</a></div>
+        </div>
+        <div id="r_m163news" class="m-163news"><div class="ttlbar fc06 bdwb bdc0 bds0">网易新闻</div>            <div class="newscnt">                <a class="headnews" hidefocus="true" target="_blank" href="http://news.163.com/15/0311/09/AKDSTM030001124J.html">                    <img src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/saved_resource">                    <span class="icover"></span>                    <span class="info"><span class="imgdesc thide">2015两会姚明表情“连连看”</span></span>                </a>                <ul>                                                                              <li class="thide"><a hidefocus="true" target="_blank" href="http://xue.youdao.com/zx/archives/154902?act=qbyoudaocidian_20141114_01" class="fc05"><span class="iblock dot">·</span>崩坏！欧美男神教你拍照小心机</a></li>                                                            <li class="thide"><a hidefocus="true" target="_blank" href="http://xue.youdao.com/zx/archives/155454?act=qbyoudaocidian_20141114_01" class="fc05"><span class="iblock dot">·</span>中国的英语教育成功吗？</a></li>                                                            <li class="thide"><a hidefocus="true" target="_blank" href="http://news.163.com/15/0311/15/AKEFJM0200014JB5.html" class="fc05"><span class="iblock dot">·</span>小镇1天积雪可达楼房2层</a></li>                                                            <li class="thide"><a hidefocus="true" target="_blank" href="http://news.163.com/15/0311/14/AKEEFEDS00011229.html" class="fc05"><span class="iblock dot">·</span>男子驾车撞前女友&nbsp;致2死3伤</a></li>                                                            <li class="thide"><a hidefocus="true" target="_blank" href="http://news.163.com/15/0311/14/AKEDLRLE00011229.html" class="fc05"><span class="iblock dot">·</span>作家张一一质疑高考试题出错</a></li>                                                            <li class="thide"><a hidefocus="true" target="_blank" href="http://news.163.com/15/0311/14/AKEDB4L600014JB6.html" class="fc05"><span class="iblock dot">·</span>警察听到神秘呼救声救起女婴</a></li>                                                            <li class="thide"><a hidefocus="true" target="_blank" href="http://news.163.com/15/0311/14/AKED0C5000011229.html" class="fc05"><span class="iblock dot">·</span>香港男子绑146台iPhone闯海关</a></li>                                                            <li class="thide"><a hidefocus="true" target="_blank" href="http://news.163.com/15/0311/14/AKECHHII00011229.html" class="fc05"><span class="iblock dot">·</span>安徽六安被歹徒劫持人质获释</a></li>                                                                          </ul>                <div class="download163news">                    <a class="fc03" target="_blank" hidefocus="true" href="http://www.163.com/newsapp/">下载网易新闻客户端 &gt;</a>                </div>            </div></div>
+        <div id="r_fixedNodesWrap" class="fixedNodesWrap"><div id="r_mlofteriframe2" class="f-trans m-lofteriframe m-lofteriframe-2" style="visibility: hidden; opacity: 0;">
+            <div class="ttlbar fc06 bdwb bdc0 bds0"><a hidefocus="true" style="display:none;float:left;margin-left:12px;color:#ff0000;font-size:12px;text-decoration:none;" target="_blank" href="http://www.lofter.com/?act=qbbokejingxuan_20150109_03&newloginentry=1">注册免费冲印20张照片</a><span>LOFTER精选</span></div>
+            <iframe id="r_lofteriframe" width="240" height="275" frameborder="0" border="0" scrolling="no" marginheight="0" marginwidth="0" allowtransparency="true" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/mailEntry.htm"></iframe>
+            <div style="height:20px;line-height:20px;padding:10px 0 0 12px;"><a target="_blank" href="http://www.lofter.com/?act=qbbokejingxuan_20150109_03&newloginentry=1" hidefocus="true" class="fc03" style="font-size:14px;text-decoration:none;">注册免费冲印20张照片 &gt;</a></div>
+        </div></div>
+    </div>
+    </div>
+  </div>
+  <div class="left">
+     <div class="lcnt bdwr bds0 bdc0 ">
+      <div id="$_newOldBlogLinkTopDiv" class="top fc03 bdwb bdc0 bds2 clearfix">       <span class="ilft iblock icn0 icn0-620">&nbsp;</span>       <div class="pleft thide"><a class="m2a" href="http://blog.163.com/moro80@126/blog/static/16630018720114184250720/">关于腾讯微博的一些思考</a></div>                 <span class="irgt iblock icn0 icn0-619">&nbsp;</span>       <div class="pright thide"><a class="m2a" href="http://blog.163.com/moro80@126/blog/static/166300187201141862445737/">腾讯微博上线页面聊天功能&nbsp;并推出微群功能</a></div>     </div>
+     <div class="mcnt ztag">
+      <div class="nbw-bitm bdwb bds2 bdc0 ">
+        <div class="multicntwrap">
+	      <div class="multicnt">
+	      	<div>
+		      <h3 class="title pre fs1"><span class="tcnt">哼唱搜索V0.2-盛大模糊检索引擎正式开源</span>&nbsp;&nbsp;<span class="bgc0 fc07 fw0 fs0"></span></h3>
+		      <p class="tdep clearfix nbw-act fc06" style="line-height:20px;">
+		        <span class="pleft">
+		          
+		          <span class="blogsep">2011-05-18 16:50:05</span><span class="blogsep">|&nbsp;&nbsp;分类：</span>
+		          <a class="fc03 m2a" href="http://blog.163.com/moro80@126/blog/#m=0&t=1&c=fks_084067087083085067093081094095085080087064084086087075083" title="默认分类">默认分类</a>
+		          <span class="blogsep" id="$_blogTagTitle">|&nbsp;&nbsp;标签：</span><span class="fc03" id="$_blogTagInfo"><a href="http://blog.163.com/moro80@126/blog/#m=0&t=3&c=检索" class="fc03 m2a">检索</a>&nbsp;&nbsp;<a href="http://blog.163.com/moro80@126/blog/#m=0&t=3&c=哼唱" class="fc03 m2a">哼唱</a>&nbsp;&nbsp;<a href="http://blog.163.com/moro80@126/blog/#m=0&t=3&c=开源" class="fc03 m2a">开源</a>&nbsp;&nbsp;<a href="http://blog.163.com/moro80@126/blog/#m=0&t=3&c=旋律" class="fc03 m2a">旋律</a>&nbsp;&nbsp;<a href="http://blog.163.com/moro80@126/blog/#m=0&t=3&c=语音" class="fc03 m2a">语音</a>&nbsp;&nbsp;</span>
+		        </span>
+		        <span class="pright fc07 ztag"><span class="blogsep">|</span><span id="$_spanReport" class="fc03 m2a">举报</span></span>
+		        <span class="pright fc07 ztag"><span class="blogsep">|</span><span class="zihao fc03" id="$_fontswitch">字号<span class="zihaoshow  phide" id="$_fontsTypes"><span class="zihaoc bdc0"><span class="stag"></span><span class="fc04 stag">大</span><span class="fc04 stag">中</span><span class="fc04 stag">小</span></span></span></span></span><span class="pright pnt fc03" id="$_blog_subscribe"><span class="iblock icn0 icn0-919">&nbsp;</span><a class="m2a">订阅</a></span>
+		      </p>
+		    </div>
+	      </div>
+        </div>
+
+        <div>
+        
+        </div>
+
+        <div class="nbw-blog-start"></div>
+        <div class="bct fc05 fc11 nbw-blog ztag">  <p>为了更好的推动全球语音识别技术的产业化，盛大语音创新院在去年年底开放了除“模糊检索引擎”以外的全部哼唱搜索的源代码。（<a target="_blank" rel="nofollow" href="http://in.sdo.com/2010/11/humming-search/">via</a>）</p>  <p>哼唱检索软件使用到了“模糊检索引擎”，该引擎作为盛大智能检索系统中的一部分，在上一次开源的内容中，我们选择了以二进制库文件的方式所提供（文件名为SDFuzzySearch.lib或SDFuzzySearch.dll）。和当初所约定的一样，我们如期而至，在2011年5月18日正式将“模糊检索引擎”部分一起开放源代码给了全球的开发者用户。本次开源包含以下两大功能：</p>  <p><span id="more-2374"></span></p>  <ol>  <li><strong>基于音符序列的模糊检索</strong>  <ul>  <li>首先将哼唱输入语音转换为音符序列，然后以音符作为检索基本单元对旋律数据库的进行检索，该方法的优点在于音符是一种紧凑的音乐表示方式，检索时计算量相对较小</li></ul></li>  <li><strong>基于基频序列的模糊检索</strong>  <ul>  <li>以基本检索单元为基频序列，计算输入序列和模板序列之间的距离，距离越小，表示这两个基频序列越相似，是目标歌曲的可能性越大，该方法的优点在于计算单元粒度更细，检索精确度更高</li></ul></li></ol>  <p>本次还一并开源了Windows下的演示程序，一方面作为哼唱检索模块接口的使用例子，另一方面方便用户进行演示层面的不同尝试。至此，盛大网络语音哼唱检索软件已经信守于对开源社区和整个社会的承诺，完全实现了开放源代码，希望能够通过我们的开源和努力，促进整个产业链的繁荣。</p>  <h2>语音哼唱检索介绍</h2>  <p>语音哼唱检索是一种基于旋律内容的音乐检索方式，指用户哼唱歌曲旋律的一个片段（八秒左右）作为输入检索源从数据库中检索与哼唱的旋律类似的音乐；相对于传统的基于关键字形式的用户接口，哼唱检索给用户提供了更便捷、更友好的查询方式，不仅作为传统检索方式的一种有益补充，而且能给用户带来更佳的搜索体验。</p>  <p>语音哼唱检索可以在很多场景应用，比如卡拉OK 点歌系统；移动设备上的音乐检索；互联网音乐搜索引擎；歌曲演唱评分与纠错等等。</p>  <h2>盛大网络语音哼唱检索开源软件介绍：</h2>  <p>盛大语音创新院哼唱检索开源软件，从结构上可以分为三部分：</p>  <ol>  <li>旋律库构建模块，</li>  <li>哼唱旋律特征提取模块，</li>  <li>旋律相似度搜索模块</li></ol>  <p>构建旋律库模块，通过对MIDI文件的分析，提取MIDI歌曲的主旋律作为旋律模板，保存在旋律数据库中；检索时，首先从输入的哼唱语音中提取旋律特征（现在用的是基频曲线和音符序列特征），然后在旋律库中检索与输入语音相似的旋律模板，并按照相似度排序后作为哼唱检索结果输出。</p>  <h2>盛大语音创新院哼唱检索开源软件特点：</h2>  <p>为音频信息处理领域的入门学习者提供了完整的学习案例和试验平台；本软件具有良好的扩展性，用户可根据需求制作自己的音乐旋律库；识别准确率高，响应速度快，本软件的前身LWX(LW1, LW3)在2008年的国际哼唱音乐检索评测中获得第一名，详情请参见http://www.music-ir.org/mirex/wiki/2008:Query-by-Singing/Humming_Results</p>  <h2>盛大语音创新院介绍：</h2>  <p>盛大语音创新院目团队成员均为国内语音领域的资深专家，团队成员曾在从2002年到2010年数届NIST(美国国家标准技术署， National Institute of Standards and Technology ，NIST， ww.nist.gov ）比赛中取得多项第一的成绩。NIST目前举办着多项计算机领域的高水平评测项目，每一项都代表着该领域的世界顶尖水平。</p>  <h2>盛大语音创新院哼唱检索开源软件版权及相关说明：</h2>  <p>本次开源的语音哼唱检索引擎涉及5500行代码，除特别声明外本软件所含所有源代码均遵守GPL（General Public License）协议第三版本；</p>  <p>为方便大家对本软件进行测试和评估，制作了一个可检索100首音乐的旋律库，对于旋律库，盛大网络提供的权利仅限于此。任何人不得将其用于除此以外的任何用途特别是商业用途。</p>  <p>本软件引用了部分第三方代码，例如midfile.h, midfile.c。并且该代码的软件许可证允许其随本软件一起发布。任何人对这些第三方代码的使用将遵守其本身的软件许可证，该许可证将在这些第三方源代码的文件顶部找到。</p>  <p><strong>项目地址</strong>：<a target="_blank" rel="nofollow" href="http://www.sndacode.com/projects/sdhumming">http://www.sndacode.com/projects/sdhumming</a></p></div>
+        <div class="nbw-blog-end"></div>
+
+        <div>
+		</div>
+
+        <div>
+		</div>
+
+		<div>
+	        <div id="$_suggestedreading2" class="suggestedreading fc03 clearfix">
+	        	<span style="display:block" class="srtitle">慕容鱼吐的新闻泡推荐阅读：</span>
+			    <div class="hidsep clearfix">
+		    	<div class="pleft suggesteditem2 clearfix">
+				  <a class="m2a" onclick="window.open(this.href);return false;" href="http://blog.163.com/moro80@126/blog/static/166300187201141935643218?suggestedreading" target="_blank">
+				   <span style="display:block" class="srtag border bds0 bdwl bdc0 btitle sep">
+				    <span style="display:block" class="bds0 bdwa bdc0 borderwrap">
+					  <span style="display:block" class="imgwrap1 color1">
+					    <span style="display:block" class="imgtip white">QQ团被指霸王条款过期不退款 腾讯SNS</span>
+					    <span style="display:block" class="imgwrap2"><img onload="g_onSuggestedReadingImgLoad(this)" class="phide" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/59f11d46fd34c7372ecbb35fd18e84d7.pic" style="margin-left: -83px; height: 90px; display: block;"></span>
+					    <span class="white time">2011.05.19</span>
+					  </span>
+					 </span>
+	                 <span class="btitle">QQ团被指霸王条款过期不退款 腾讯SNS非中国</span><span class="icn0 icn0-56"></span>
+	                </span>
+	               </a>
+	             </div>
+		    	<div class="pleft suggesteditem2 clearfix">
+				  <a class="m2a" onclick="window.open(this.href);return false;" href="http://blog.163.com/moro80@126/blog/static/16630018720114190355492?suggestedreading" target="_blank">
+				   <span style="display:block" class="srtag border bds0 bdwl bdc0 btitle sep">
+				    <span style="display:block" class="bds0 bdwa bdc0 borderwrap">
+					  <span style="display:block" class="imgwrap1 color2">
+					    <span style="display:block" class="imgtip white">北京海淀区劳动局判定酷6裁员无效</span>
+					    
+					    <span class="white time">2011.05.19</span>
+					  </span>
+					 </span>
+	                 <span class="btitle">北京海淀区劳动局判定酷6裁员无效</span><span class="icn0 icn0-56"></span>
+	                </span>
+	               </a>
+	             </div>
+		    	<div class="pleft suggesteditem2 clearfix">
+				  <a class="m2a" onclick="window.open(this.href);return false;" href="http://blog.163.com/moro80@126/blog/static/16630018720114196024221?suggestedreading" target="_blank">
+				   <span style="display:block" class="srtag border bds0 bdwl bdc0 btitle sep">
+				    <span style="display:block" class="bds0 bdwa bdc0 borderwrap">
+					  <span style="display:block" class="imgwrap1 color3">
+					    <span style="display:block" class="imgtip white">SegmentFault:程序员的问答网站上线</span>
+					    <span style="display:block" class="imgwrap2"><img onload="g_onSuggestedReadingImgLoad(this)" class="phide" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/3729543441416804134.png" style="margin-left: -13px; height: 90px; display: block;"></span>
+					    <span class="white time">2011.05.19</span>
+					  </span>
+					 </span>
+	                 <span class="btitle">SegmentFault:程序员的问答网站上线内测！</span><span class="icn0 icn0-56"></span>
+	                </span>
+	               </a>
+	             </div>
+		    	<div class="pleft suggesteditem2 clearfix">
+				  <a class="m2a" onclick="window.open(this.href);return false;" href="http://blog.163.com/moro80@126/blog/static/166300187201141954510371?suggestedreading" target="_blank">
+				   <span style="display:block" class="srtag border bds0 bdwl bdc0 btitle sep">
+				    <span style="display:block" class="bds0 bdwa bdc0 borderwrap">
+					  <span style="display:block" class="imgwrap1 color4">
+					    <span style="display:block" class="imgtip white">Widnows8全新功能详细体验记</span>
+					    <span style="display:block" class="imgwrap2"><img onload="g_onSuggestedReadingImgLoad(this)" class="phide" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/11051814503f126b1e8309fa0a.jpg" style="margin-left: -27px; height: 90px; display: block;"></span>
+					    <span class="white time">2011.05.19</span>
+					  </span>
+					 </span>
+	                 <span class="btitle">Widnows8全新功能详细体验记</span><span class="icn0 icn0-56"></span>
+	                </span>
+	               </a>
+	             </div>
+		    	<div class="pleft suggesteditem2 clearfix">
+				  <a class="m2a" onclick="window.open(this.href);return false;" href="http://blog.163.com/moro80@126/blog/static/166300187201141872643310?suggestedreading" target="_blank">
+				   <span style="display:block" class="srtag border bds0 bdwl bdc0 btitle sep">
+				    <span style="display:block" class="bds0 bdwa bdc0 borderwrap">
+					  <span style="display:block" class="imgwrap1 color5">
+					    <span style="display:block" class="imgtip white">百度推问答网站新知 知道掌门人服务</span>
+					    <span style="display:block" class="imgwrap2"><img onload="g_onSuggestedReadingImgLoad(this)" class="phide" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/sour.gif"></span>
+					    <span class="white time">2011.05.18</span>
+					  </span>
+					 </span>
+	                 <span class="btitle">百度推问答网站新知 知道掌门人服务或将融</span><span class="icn0 icn0-56"></span>
+	                </span>
+	               </a>
+	             </div>
+		    	<div class="pleft suggesteditem2 clearfix">
+				  <a class="m2a" onclick="window.open(this.href);return false;" href="http://blog.163.com/moro80@126/blog/static/166300187201141810352486?suggestedreading" target="_blank">
+				   <span style="display:block" class="srtag border bds0 bdwl bdc0 btitle sep">
+				    <span style="display:block" class="bds0 bdwa bdc0 borderwrap">
+					  <span style="display:block" class="imgwrap1 color1">
+					    <span style="display:block" class="imgtip white">慕容鱼：对于问答类产品的一点看法及</span>
+					    
+					    <span class="white time">2011.05.18</span>
+					  </span>
+					 </span>
+	                 <span class="btitle">慕容鱼：对于问答类产品的一点看法及“钱”</span><span class="icn0 icn0-56"></span>
+	                </span>
+	               </a>
+	             </div>
+		    	<div class="pleft suggesteditem2 clearfix">
+				  <a class="m2a" onclick="window.open(this.href);return false;" href="http://blog.163.com/moro80@126/blog/static/16630018720114184250720?suggestedreading" target="_blank">
+				   <span style="display:block" class="srtag border bds0 bdwl bdc0 btitle sep">
+				    <span style="display:block" class="bds0 bdwa bdc0 borderwrap">
+					  <span style="display:block" class="imgwrap1 color2">
+					    <span style="display:block" class="imgtip white">关于腾讯微博的一些思考</span>
+					    <span style="display:block" class="imgwrap2"><img onload="g_onSuggestedReadingImgLoad(this)" class="phide" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/weibo1.png" style="width: 90px; margin-top: -3px; display: block;"></span>
+					    <span class="white time">2011.05.18</span>
+					  </span>
+					 </span>
+	                 <span class="btitle">关于腾讯微博的一些思考</span><span class="icn0 icn0-56"></span>
+	                </span>
+	               </a>
+	             </div>
+		    	<div class="pleft suggesteditem2 clearfix">
+				  <a class="m2a" onclick="window.open(this.href);return false;" href="http://blog.163.com/moro80@126/blog/static/166300187201141861914923?suggestedreading" target="_blank">
+				   <span style="display:block" class="srtag border bds0 bdwl bdc0 btitle sep">
+				    <span style="display:block" class="bds0 bdwa bdc0 borderwrap">
+					  <span style="display:block" class="imgwrap1 color3">
+					    <span style="display:block" class="imgtip white">谷奥说说 AdSense 帐号被封和写 blog</span>
+					    
+					    <span class="white time">2011.05.18</span>
+					  </span>
+					 </span>
+	                 <span class="btitle">谷奥说说 AdSense 帐号被封和写 blog 的心</span><span class="icn0 icn0-56"></span>
+	                </span>
+	               </a>
+	             </div>
+			    </div>
+			</div>
+      	  <div class="phide">
+		  	<script type="text/javascript" id="wumiiRelatedItems"></script>
+		  </div>
+		</div>
+
+        <div class="ptc phide ztag">
+          <span class="ptcp">
+            <span class="iblock bcmimg">&nbsp;</span>
+            <span class="nbc-0 nbc-0-40 ptcmt ptcmt-2">评论这张</span>
+          </span>
+        </div>
+		<div style="display:none" class="ptc phide ztag">
+          <span class="ptcp">
+            <span class="nbc-0 nbc-0-40 ptcmi">
+              <img src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/microblog.png">
+            </span>
+            <span class="nbc-0 nbc-0-40 ptcmt">转发至微博</span>
+          </span>
+        </div>
+        <div class="ptc phide">
+          <a id="publishtolofter" class="toLofter" title="发布到LOFTER" target="_blank" hidefocus="true">&nbsp;</a>
+        </div>
+        
+        <div style="display:none" class="ptc phide ztag">
+          <span class="ptcp">
+            <span class="nbc-0 nbc-0-40 ptcmi">
+              <img src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/microblog.png">
+            </span>
+            <span class="nbc-0 nbc-0-40 ptcmt">转发至微博</span>
+          </span>
+        </div>
+
+
+        <div class="nbw-act tbar fc03 clearfix">
+          
+          
+          <div class="editopbar" style="height:32px;line-height:32px;text-align:left;">
+            <span class="fc07">阅读(<span id="$_spaniReadCount">1995</span>)</span><span class="sep fc07">|</span>
+            <span class="fc07">评论(<span id="$_spaniCommentCount">0</span>)</span>
+          </div>
+          
+          
+          <div style="height:40px;line-height:40px;">
+            <div class="pleft rdif">
+              <span style="display:none" class="pleft sep sep-last fc07">|</span>
+              <div class="share-wrap pleft">
+                <span id="$_shareBtn_lofter" title="分享到LOFTER" class="shareitm lofter f-bkicons">&nbsp;</span>
+                <span id="$_shareBtn_sinaweibo" title="分享到新浪微博" class="shareitm sinawb f-bkicons">&nbsp;</span>
+                <span id="$_shareBtn_qq" title="分享到QQ空间" class="shareitm qqzone f-bkicons">&nbsp;</span>
+                <span id="$_shareBtn_qqweibo" title="分享到腾讯微博" class="shareitm qqweibo f-bkicons">&nbsp;</span>
+                <div id="$_shareBtn_weixin" title="分享到微信" class="shareitm weixin f-bkicons">
+<div class="code2dimlayer fc06">
+    <img src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/bitMaxImageGen.do">
+    <div class="tips">
+        <p>用微信&nbsp;&nbsp;“扫一扫”</p>
+        <p>将文章分享到朋友圈。</p>
+    </div>
+    <a class="close">&nbsp;</a>
+</div>
+                </div>
+                <div id="$_shareBtn_yixin" title="分享到易信" class="shareitm yixin f-bkicons">
+<div class="code2dimlayer fc06">
+    <img src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/bitMaxImageGen.do">
+    <div class="tips">
+        <p>用易信&nbsp;&nbsp;“扫一扫”</p>
+        <p>将文章分享到朋友圈。</p>
+    </div>
+    <a class="close">&nbsp;</a>
+</div>
+                </div>
+              </div>
+              
+              <form style="display:none" id="shareToLofterForm" method="post" target="_blank" action="http://www.lofter.com/sharetext?act=qbblogpost_20131023_04">
+                <input type="hidden" name="thirdId" value="fks_095065084085088065082085084095085080087064084086087075083">
+                <input type="hidden" name="from" value="BLOGPOST">
+                <input type="hidden" name="title" value="哼唱搜索V0.2-盛大模糊检索引擎正式开源">
+                <input type="hidden" name="content" value="  &lt;P&gt;为了更好的推动全球语音识别技术的产业化，盛大语音创新院在去年年底开放了除“模糊检索引擎”以外的全部哼唱搜索的源代码。（&lt;A target=&quot;_blank&quot; rel=&quot;nofollow&quot; href=&quot;http://in.sdo.com/2010/11/humming-search/&quot;  &gt;via&lt;/A&gt;）&lt;/P&gt;  &lt;P&gt;哼唱检索软件使用到了“模糊检索引擎”，该引擎作为盛大智能检索系统中的一部分，在上一次开源的内容中，我们选择了以二进制库文件的方式所提供（文件名为SDFuzzySearch.lib或SDFuzzySearch.dll）。和当初所约定的一样，我们如期而至，在2011年5月18日正式将“模糊检索引擎”部分一起开放源代码给了全球的开发者用户。本次开源包含以下两大功能：&lt;/P&gt;  &lt;P&gt;&lt;SPAN id=&quot;more-2374&quot;  &gt;&lt;/SPAN&gt;&lt;/P&gt;  &lt;OL&gt;  &lt;LI&gt;&lt;STRONG&gt;基于音符序列的模糊检索&lt;/STRONG&gt;  &lt;UL&gt;  &lt;LI&gt;首先将哼唱输入语音转换为音符序列，然后以音符作为检索基本单元对旋律数据库的进行检索，该方法的优点在于音符是一种紧凑的音乐表示方式，检索时计算量相对较小&lt;/LI&gt;&lt;/UL&gt;&lt;/LI&gt;  &lt;LI&gt;&lt;STRONG&gt;基于基频序列的模糊检索&lt;/STRONG&gt;  &lt;UL&gt;  &lt;LI&gt;以基本检索单元为基频序列，计算输入序列和模板序列之间的距离，距离越小，表示这两个基频序列越相似，是目标歌曲的可能性越大，该方法的优点在于计算单元粒度更细，检索精确度更高&lt;/LI&gt;&lt;/UL&gt;&lt;/LI&gt;&lt;/OL&gt;  &lt;P&gt;本次还一并开源了Windows下的演示程序，一方面作为哼唱检索模块接口的使用例子，另一方面方便用户进行演示层面的不同尝试。至此，盛大网络语音哼唱检索软件已经信守于对开源社区和整个社会的承诺，完全实现了开放源代码，希望能够通过我们的开源和努力，促进整个产业链的繁荣。&lt;/P&gt;  &lt;H2&gt;语音哼唱检索介绍&lt;/H2&gt;  &lt;P&gt;语音哼唱检索是一种基于旋律内容的音乐检索方式，指用户哼唱歌曲旋律的一个片段（八秒左右）作为输入检索源从数据库中检索与哼唱的旋律类似的音乐；相对于传统的基于关键字形式的用户接口，哼唱检索给用户提供了更便捷、更友好的查询方式，不仅作为传统检索方式的一种有益补充，而且能给用户带来更佳的搜索体验。&lt;/P&gt;  &lt;P&gt;语音哼唱检索可以在很多场景应用，比如卡拉OK 点歌系统；移动设备上的音乐检索；互联网音乐搜索引擎；歌曲演唱评分与纠错等等。&lt;/P&gt;  &lt;H2&gt;盛大网络语音哼唱检索开源软件介绍：&lt;/H2&gt;  &lt;P&gt;盛大语音创新院哼唱检索开源软件，从结构上可以分为三部分：&lt;/P&gt;  &lt;OL&gt;  &lt;LI&gt;旋律库构建模块，&lt;/LI&gt;  &lt;LI&gt;哼唱旋律特征提取模块，&lt;/LI&gt;  &lt;LI&gt;旋律相似度搜索模块&lt;/LI&gt;&lt;/OL&gt;  &lt;P&gt;构建旋律库模块，通过对MIDI文件的分析，提取MIDI歌曲的主旋律作为旋律模板，保存在旋律数据库中；检索时，首先从输入的哼唱语音中提取旋律特征（现在用的是基频曲线和音符序列特征），然后在旋律库中检索与输入语音相似的旋律模板，并按照相似度排序后作为哼唱检索结果输出。&lt;/P&gt;  &lt;H2&gt;盛大语音创新院哼唱检索开源软件特点：&lt;/H2&gt;  &lt;P&gt;为音频信息处理领域的入门学习者提供了完整的学习案例和试验平台；本软件具有良好的扩展性，用户可根据需求制作自己的音乐旋律库；识别准确率高，响应速度快，本软件的前身LWX(LW1, LW3)在2008年的国际哼唱音乐检索评测中获得第一名，详情请参见http://www.music-ir.org/mirex/wiki/2008:Query-by-Singing/Humming_Results&lt;/P&gt;  &lt;H2&gt;盛大语音创新院介绍：&lt;/H2&gt;  &lt;P&gt;盛大语音创新院目团队成员均为国内语音领域的资深专家，团队成员曾在从2002年到2010年数届NIST(美国国家标准技术署， National Institute of Standards and Technology ，NIST， ww.nist.gov ）比赛中取得多项第一的成绩。NIST目前举办着多项计算机领域的高水平评测项目，每一项都代表着该领域的世界顶尖水平。&lt;/P&gt;  &lt;H2&gt;盛大语音创新院哼唱检索开源软件版权及相关说明：&lt;/H2&gt;  &lt;P&gt;本次开源的语音哼唱检索引擎涉及5500行代码，除特别声明外本软件所含所有源代码均遵守GPL（General Public License）协议第三版本；&lt;/P&gt;  &lt;P&gt;为方便大家对本软件进行测试和评估，制作了一个可检索100首音乐的旋律库，对于旋律库，盛大网络提供的权利仅限于此。任何人不得将其用于除此以外的任何用途特别是商业用途。&lt;/P&gt;  &lt;P&gt;本软件引用了部分第三方代码，例如midfile.h, midfile.c。并且该代码的软件许可证允许其随本软件一起发布。任何人对这些第三方代码的使用将遵守其本身的软件许可证，该许可证将在这些第三方源代码的文件顶部找到。&lt;/P&gt;  &lt;P&gt;&lt;STRONG&gt;项目地址&lt;/STRONG&gt;：&lt;A target=&quot;_blank&quot; rel=&quot;nofollow&quot; href=&quot;http://www.sndacode.com/projects/sdhumming&quot;  &gt;http://www.sndacode.com/projects/sdhumming&lt;/A&gt;&lt;/P&gt;">
+                <input type="hidden" name="source" value="慕容鱼吐的新闻泡">
+                <input type="hidden" name="sourceUrl" value="http://blog.163.com/moro80@126/blog/static/16630018720114184505851">
+                <input type="hidden" name="tag" value="检索,哼唱,开源,旋律,语音">
+              </form>
+              
+            </div>
+            <div class="pright rightoperatebar rightoperatebar-new">
+              <span class="f-myLikeIcons likebtn pnt pright" id="$_spanLike">喜欢</span>
+	            <span class="f-myLikeIcons recommendbtn pnt pright" id="$_spanRecommend">推荐</span>
+	          <span style="display:none" id="$_spanShowRecommend" class="pleft rdct  phide">
+	            <span class="pleft ul fc03"><span id="$_spanRecommendCount">0</span>人</span><span class="pleft iblock icn0 icn0-722 nbw-tgl1 nas-icn0fix">&nbsp;</span><span class="pleft iblock icn0 icn0-621 nbw-tgl0 nas-icn0fix">&nbsp;</span><span class="fc07"></span>|&nbsp;
+	          </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="snl">
+        <div style="display:none" class="phide bdwb bds2 bdc0 rdcnt" id="$_divRecommendContent"></div>
+        <div id="yodaoad" class="bdwb bds2 bdc0" style="display:none;_zoom:1;">&nbsp;</div>
+        <div id="$_newOldBlogLinkBottomDiv" class="top fc03 clearfix">       <span class="ilft iblock icn0 icn0-620">&nbsp;</span>       <div class="pleft thide"><a class="m2a" href="http://blog.163.com/moro80@126/blog/static/16630018720114184250720/">关于腾讯微博的一些思考</a></div>                 <span class="irgt iblock icn0 icn0-619">&nbsp;</span>       <div class="pright thide"><a class="m2a" href="http://blog.163.com/moro80@126/blog/static/166300187201141862445737/">腾讯微博上线页面聊天功能&nbsp;并推出微群功能</a></div>     </div>
+	    <div class="relateblog phide">
+          <h4 class="bdwb bds2 bdc0 fc07 fs0">历史上的今天</h4>
+          <div class="cnt ztag clearfix"></div>
+        </div>
+	    <div class="author">
+	      <h4 class="bdwb bds2 bdc0 fc07 fs0">最近读者</h4>
+	      <div class="cnt ztag clearfix"><div class="pleft nlogif clearfix"> <div class="pleft nbw-f50 nbw-fce"><img class="cwd pnt" onerror="this.src=location.f60" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/face60.png"></div> <div class="m2a pright fc03"><span class="ul">登录</span>后，您可以在此留下足迹。</div> </div>        <div class="iblock nbw-fce nbw-f40">      <a class="fc03 noul" target="_blank" hidefocus="true" href="http://blog.163.com/meifengsun/">            <img alt="meifengsun" onerror="this.src=location.f40" class="cwd bdwa bdc0" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/ava(1).s">            </a>      <div class="cwd vname thide">                <a class="fc03 m2a" target="_blank" hidefocus="true" href="http://blog.163.com/meifengsun/">          meifengs        </a>      </div>    </div>                <div class="iblock nbw-fce nbw-f40">      <a class="fc03 noul" target="_blank" hidefocus="true" href="http://blog.163.com/mabo263/">            <img alt="mabo263" onerror="this.src=location.f40" class="cwd bdwa bdc0" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/ava(2).s">            </a>      <div class="cwd vname thide">                <a class="fc03 m2a" target="_blank" hidefocus="true" href="http://blog.163.com/mabo263/">          mabo263        </a>      </div>    </div>                <div class="iblock nbw-fce nbw-f40">      <a class="fc03 noul" target="_blank" hidefocus="true" href="http://blog.163.com/yuanbin3/">            <img alt="yuanbin3" onerror="this.src=location.f40" class="cwd bdwa bdc0" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/ava(3).s">            </a>      <div class="cwd vname thide">                <a class="fc03 m2a" target="_blank" hidefocus="true" href="http://blog.163.com/yuanbin3/">          yuanbin3        </a>      </div>    </div>                <div class="iblock nbw-fce nbw-f40">      <a class="fc03 noul" target="_blank" hidefocus="true" href="http://blog.163.com/iakuf/">            <img alt="iakuf" onerror="this.src=location.f40" class="cwd bdwa bdc0" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/ava(4).s">            </a>      <div class="cwd vname thide">                <a class="fc03 m2a" target="_blank" hidefocus="true" href="http://blog.163.com/iakuf/">          iakuf        </a>      </div>    </div>                <div class="iblock nbw-fce nbw-f40">      <a class="fc03 noul" target="_blank" hidefocus="true" href="http://blog.163.com/hitlxq@126/">            <img alt="hitlxq" onerror="this.src=location.f40" class="cwd bdwa bdc0" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/ava(5).s">            </a>      <div class="cwd vname thide">                <a class="fc03 m2a" target="_blank" hidefocus="true" href="http://blog.163.com/hitlxq@126/">          hitlxq        </a>      </div>    </div>                <div class="iblock nbw-fce nbw-f40">      <a class="fc03 noul" target="_blank" hidefocus="true" href="http://blog.163.com/huihuangui@yeah/">            <img alt="huihuangui@yeah" onerror="this.src=location.f40" class="cwd bdwa bdc0" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/ava(6).s">            </a>      <div class="cwd vname thide">                <a class="fc03 m2a" target="_blank" hidefocus="true" href="http://blog.163.com/huihuangui@yeah/">          huihuang        </a>      </div>    </div>                <div class="iblock nbw-fce nbw-f40">      <a class="fc03 noul" target="_blank" hidefocus="true" href="http://blog.163.com/deco-ding/">            <img alt="MrGodin" onerror="this.src=location.f40" class="cwd bdwa bdc0" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/ava(7).s">            </a>      <div class="cwd vname thide">                <a class="fc03 m2a" target="_blank" hidefocus="true" href="http://blog.163.com/deco-ding/">          MrGodin        </a>      </div>    </div>                <div class="iblock nbw-fce nbw-f40">      <a class="fc03 noul" target="_blank" hidefocus="true" href="http://blog.163.com/water_flame123/">            <img alt="water_flame123" onerror="this.src=location.f40" class="cwd bdwa bdc0" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/ava(8).s">            </a>      <div class="cwd vname thide">                <a class="fc03 m2a" target="_blank" hidefocus="true" href="http://blog.163.com/water_flame123/">          water_fl        </a>      </div>    </div>        </div>
+	    </div>
+	    <div id="hotarea" class="hotarea author ">
+	      <h4 class="bdwb bds2 bdc0 fc07 fs0">热度</h4>
+	      <div id="hotlist" class="cnt clearfix">        <div class="hotItem iblock nbw-fce nbw-f40">      <a class="fc03 noul" target="_blank" hidefocus="true" href="http://blog.163.com/zouhaolu/">            <img alt="Nekor" onerror="this.src=location.f40" class="cwd bdwa bdc0" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/ava(9).s">            </a>      <div class="cwd vname thide">        <a class="fc03 m2a" target="_blank" hidefocus="true" href="http://blog.163.com/zouhaolu/">          Nekor        </a>      </div>      <a class="f-myLikeIcons hottype  js-reblogtype" target="_blank" hidefocus="true" href="http://blog.163.com/zouhaolu/">&nbsp;</a>    </div>        </div>
+	    </div>
+	    <div class="phide" id="yodaoad_1" style="_zoom:1;"></div>
+	    <div id="loftertextlinkad" style="padding: 0px 6px 0px 5px;">
+	      <div style="height:40px;line-height:40px;margin:15px 0 15px 0;border:1px solid #d5d5d5;background:#ffffe1;text-align:left;">
+	        <span style="float:right;height:20px;line-height:20px;padding:10px 16px 10px 0;color:#d7854e;cursor:pointer;">关闭</span>
+	        <div style="padding-left:24px;color:#000;">玩LOFTER，免费冲印20张照片，人人有奖！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="color:#d7854e;text-decoration:none;" href="http://www.lofter.com/" target="_blank">我要抢&gt;</a></div>
+	      </div>
+	    </div>
+	    <div class="comment">
+	      <h4 class="bdwb bds2 bdc0 fc07 fs0">评论</h4>
+	      <a name="blogComment" id="blogComment"></a>
+	      <div class="ztag"><div>    <div class="publish ztag"><div class="nbw-cdt edt-cmt"><div class="nbw-act tp"> <span class="m2a fc03 ztag">点击登录</span><span class="sep">|</span><span class="fc05">昵称：</span><input maxlength="18" class="znick bdwa bds0 bdc0 ztag" type="text"> </div> <div class="edt ztag"><div class="ui-2226785624"><div class="zcnt ztag zbrd bdc0"><iframe frameborder="0" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客.htm"></iframe></div> <div class="zbtn"> <span class="zfce zbgp ztag space">&nbsp;</span> <input class="zbok zhnd ztag nbtn fc09 bdc1 bgc2" type="button" value="发表"> <span class="zbcc zhnd ztag fc04">取消</span> <div class="zvcd ztag" style="display: none;"> <label>验证码：</label><input class="zbrd xtag bdc0" type="text" maxlength="4"><img class="xtag" title="点击刷新验证码" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/empty.png"><span class="xtag fc04">换一张</span> </div> </div> <div class="zmsg fc07" style="display:none;"><span class="zicn zbgp iblock">&nbsp;</span><span class="ztag"></span></div></div></div> <div class="hnt thide ztag" style="display: none;"></div></div></div>
+    <div class="bdwt bds2 bdc0 phide" id="yodaoad_2" style="_zoom:1;"></div>
+    <div class="ztag bdwt bds2 bdc0">
+      <div class="case"></div>
+      <div class="clearfix" style="display: none;"><div class="ui-7469572782 noselect js-zfrg-6540" style="display: none;"><span class="pgi pgb iblock fc03 bgc9 bdc0 js-znpg-097">上一页</span> <span class="pgi zpg1 iblock fc03 bgc9 bdc0 js-zslt-987 fc05">1</span> <span class="frg fgp fc06">...</span> <span class="pgi zpg2 iblock fc03 bgc9 bdc0" style="display: none;">-1</span> <span class="pgi zpg3 iblock fc03 bgc9 bdc0" style="display: none;">-1</span> <span class="pgi zpg4 iblock fc03 bgc9 bdc0" style="display: none;">-1</span> <span class="pgi zpg5 iblock fc03 bgc9 bdc0" style="display: none;">-1</span> <span class="pgi zpg6 iblock fc03 bgc9 bdc0" style="display: none;">-1</span> <span class="pgi zpg7 iblock fc03 bgc9 bdc0" style="display: none;">-1</span> <span class="pgi zpg8 iblock fc03 bgc9 bdc0" style="display: none;">-1</span> <span class="frg fgn fc06">...</span> <span class="pgi zpg9 iblock fc03 bgc9 bdc0" style="display: none;">-1</span> <span class="pgi pgb iblock fc03 bgc9 bdc0 js-znpg-097">下一页</span></div></div>
+    </div>
+  </div></div>
+	    </div>
+	    <div class="phide" id="yodaoad_3" style="_zoom:1;"></div>
+      </div>
+      <div class="cite ztag fc03 phide"></div>
+    </div>
+   </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+var wumiiPermaLink = "http://blog.163.com/moro80@126/blog/static/16630018720114184505851/"; //文章的永久链接，作为文章的唯一标识
+var wumiiTags = "检索,哼唱,开源,旋律,语音"; //文章标签，以英文逗号分隔，如："标签1,标签2"
+var wumiiSitePrefix = "http://blog.163.com/moro80@126/"; //博客的主页地址，作为博客的唯一标识
+var wumiiParams = "&num=5&mode=3&pf=blog163"; //num为默认显示的相关文章数目，mode为默认的显示模式（1为文字，2为图片，3为自动）
+</script>
+<script type="text/javascript" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/relatedItemsWidget.htm"></script>
+</div>
+      <div class="l cl h100">&nbsp;</div>
+      <div class="r cr h100">&nbsp;</div>
+    </div>
+    <div class="nb-mb lcr bh space">
+      <div class="l bl bh">&nbsp;</div>
+      <div class="r br bh">&nbsp;</div>
+      <div class="c bc bh lcr">&nbsp;</div>
+    </div>
+  </div>
+
+</div>
+      <div class="l wl g lg h100">&nbsp;</div>
+      <div class="l wl t lt">&nbsp;</div>
+      <div class="l wl b lb">&nbsp;</div>
+      <div class="r wr g rg h100">&nbsp;</div>
+      <div class="r wr t rt">&nbsp;</div>
+      <div class="r wr b rb">&nbsp;</div>
+    </div>
+  </div>
+  <div class="nb-are nb-smb"><div class="wkg h space"><div class="l h">&nbsp;</div><div class="r h">&nbsp;</div><div class="c h">&nbsp;</div></div></div>
+<div class="nb-are nb-fot">
+  <div class="wkg h">
+    <h2>页脚</h2>
+    <div class="k">      
+      <a rel="nofollow" class="m2a fc08" target="_blank" href="http://blog.163.com/public/theme/">博客风格</a>
+      <span class="p fc10">-</span>
+      <a rel="nofollow" class="m2a fc08" target="_blank" href="http://blog.163.com/services/wapblog.html">手机博客</a>
+      <span class="p fc10">-</span>
+      <a rel="nofollow" class="m2a fc08" target="_blank" href="http://www.lofter.com/app?act=qbboke_20150209_02">下载LOFTER APP</a>
+      
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.163.com/moro80@126/rss/">
+      <span class="p fc10">-</span><span class="fc08" id="$_foot_subscribe"><span class="iblock m2a icn0 icn0-919">&nbsp;</span><a class="m2a fc08">订阅此博客</a></span>
+    </div>
+    <p class="fc08">网易公司版权所有&nbsp;&#169;1997-2015</p>
+  </div>
+</div></div>
+    <!--[if lte IE 6]></div><![endif]-->
+  <!--[if lte IE 6]></div><![endif]-->
+  <div class="nb-layer" id="blog-163-com-layer"><div class="ui-8380317502 postadlayer nbw-win nbwindow nbwinautoheight"><div class="nbwinwrap"> <div class="zcls zflg" title="关闭"><div class="txtclose">×</div></div> <div class="ztbr noselect zflg"><div class="zttl thide zflg">信息提示</div></div> <div class="zcnt zflg"><div class="" style="top: 100px; left: 200px;"><div class="m-adv ztag" style="bottom: -300px;"> <div class="m-advc"> <a class="ztag adv" href="http://www.lofter.com/?index163Image=1421746358573&lofteradinblog16320121203" target="_blank"> <p> <img class="ztag hidden" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/6608917004446218166.jpg"> <img class="ztag" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/6608917004446218166.jpg"> </p> <span class="cover ztag"></span> <span class="tag ztag"> <span class="logo">&nbsp;</span> <span class="source thide ztag">苹果玩起了中国风</span> </span> <span class="imgcover">&nbsp;</span> </a> <a href="http://blog.163.com/moro80@126/blog/static/16630018720114184505851/#" title="关闭" class="ztag btn-close"></a> </div> </div></div></div> <div class="zbtnbar zflg"></div> <div class="zext zext0" style="left: 6px;">&nbsp;</div> <div class="zext zext1" style="left: 6px;">&nbsp;</div> <div class="zext zext2" style="height: 46px; top: 23px;">&nbsp;</div> <div class="zext zext3" style="height: 46px; top: 23px;">&nbsp;</div> <div class="zext zext4">&nbsp;</div> <div class="zext zext5">&nbsp;</div> <div class="zext zext6">&nbsp;</div> <div class="zext zext7">&nbsp;</div> </div></div></div>
+  
+<script type="text/javascript">
+  window.N = {tm:{'zbtn':'nbtn',
+                  'bdc0':'bdc0','bdc2':'bdc1',
+				  'bgc0':'bgc0','bgc1':'bgc1','bgc2':'bgc2','bgh0':'bgc9',
+				  'fc00':'fc03','fc01':'fc04','fc02':'fc05','fc03':'fc06','fc04':'fc07','fc05':'fc09'}};
+  Date.servTime = '03/11/2015 18:09:58';
+  location.api = 'http://api.blog.163.com/';
+  location.msg = 'http://api.blog.163.com/msg/dwr';
+  location.dwr = 'http://api.blog.163.com/moro80@126/dwr';
+  location.vcd = 'http://api.blog.163.com/cap/captcha.jpgx?parentId=166300187&r=';
+  location.mrt = 'http://b.bst.126.net/newpage/style/mbox/';
+  location.fce = 'http://os.blog.163.com/common/ava.s?host=';
+  location.fce2= 'http://os.blog.163.com/common/ava.s?host=';
+  location.passportfce = 'http://os.blog.163.com/common/ava.s?passport=';
+  location.fpr = 'http://b.bst.126.net/common/portrait/face/preview/';
+  location.f60 = 'http://b.bst.126.net/common/face60.png';
+  location.f140= 'http://b.bst.126.net/common/face140.png';
+  location.f40 = location.f140;
+  location.adf140= 'http://b.bst.126.net/common/admireface140.png';
+  location.ept = 'http://b.bst.126.net/common/empty.png';
+  location.guide_profile_add= 'http://b.bst.126.net/common/guide_profile_add.gif';
+  location.phtoto_dream = 'http://photo.dream.163.com/blog/writeBlogCallback.do';
+  window.CF = {
+    ca:false
+   ,mid:-3
+   ,cb:''
+   ,cc:false
+   ,cd:false
+   ,ce:'-3'
+   ,ck:0
+   ,ci:['api.blog.163.com'
+       ,'http://photo.163.com/photo/html/crossdomain.html?t=20100205'
+        
+        ,'ud.blog.163.com'
+        
+        
+        
+        ]
+   ,cj:[-3]
+   ,cl:''
+   ,cm:["","blog/","album/","music/","collection/","friends/","profile/","pprank/"]
+   ,cf:0
+   ,co:{pv:false
+       ,ti:91347556
+       ,tn:''
+       ,tc:0
+       ,tl:3
+       ,ut:0
+       ,un:''
+       ,um:''
+       ,ui:0
+       ,ud:true}
+   ,cp:{nr:0
+       ,cr:0
+       ,vr:-90
+       ,fr:0}
+   ,cs:0
+   ,ct:{'nav':['首页','日志','相册','音乐','收藏','博友','关于我'],'enabled':[0,1,6],'defaultnav':parseInt('1111111',2)}
+   ,cu:false
+   ,cv:false
+   ,cw:false
+  };
+  window.UD = {};
+  UD.host = {
+      userId:166300187
+     ,userName:'moro80@126'
+     ,nickName:'慕容鱼吐的新闻泡'
+     ,imageUpdateTime:1305277366447
+     ,baseUrl:'http://blog.163.com/moro80@126/'
+     ,gender:'他'
+     ,email:'moro80@126.com'
+     ,photo163Name:'moro80@126'
+     ,photo163HostName:'moro80@126'
+     ,TOKEN_HTMLMODULE:''
+     ,isMultiUserBlog:false
+     ,isWumiUser:true
+     ,sRank:-100
+  };
+</script>
+    <script type="text/javascript" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/pc.js"></script><iframe width="0" height="0" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/crossdomain.htm" id="api.blog.163.com" name="api.blog.163.com" onload="J.a(&#39;api.blog.163.com&#39;);" style="display:none;"></iframe><iframe width="0" height="0" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/crossdomain(1).htm" id="photo.163.com" name="photo.163.com" onload="J.a(&#39;photo.163.com&#39;);" style="display:none;"></iframe><iframe width="0" height="0" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/crossdomain(2).htm" id="ud.blog.163.com" name="ud.blog.163.com" onload="J.a(&#39;ud.blog.163.com&#39;);" style="display:none;"></iframe>
+    <script type="text/javascript" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/pm.js"></script>
+  <script src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/ntes.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    _ntes_nacc='blog';neteaseTracker();
+    
+    new Image().src = 'http://blog.163.com/newpage/images/analyse.png?s=p&t='+new Date().getTime();
+  </script>
+
+<script type="text/javascript">
+    window.setTimeout(function(){
+			J.loadScript('http://music.ph.126.net/ph.js?001');
+			
+			J.postDataByDWR(location.dwr,'MusicBeanNew','setCopyrightMusicSessionToken',false);
+	},1000);
+</script>
+
+<script type="text/javascript">
+    window.setTimeout(function(){
+	    var _iframe = document.cloneElement('iframe');
+	    _iframe.width = 0;
+	    _iframe.height = 0;
+	    _iframe.style.display = 'none';
+	    document.body.appendChild(_iframe); 
+	    _iframe.src = "http://reg.163.com/crossdomain_all.do"; 
+			
+		J.postDataByDWR(location.dwr,'MusicBeanNew','setLofterCookieSessionToken',false);
+	},1000);
+</script>
+    <script type="text/javascript" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/prettify.js"></script>
+
+
+<iframe frameborder="0" src="./哼唱搜索V0.2-盛大模糊检索引擎正式开源 - 慕容鱼吐的新闻泡的日志 - 网易博客_files/crossdomain_all.htm" width="0" height="0" style="display: none;"></iframe><div class="m-fixedPCAd f-trans" style="visibility: visible; opacity: 1;"><a target="_blank" href="http://www.lofter.com/?act=qbboketanchuang_20150109_02&newloginentry=1">&nbsp;</a></div></body></html>
